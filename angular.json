@@ -5,7 +5,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "demo": {
+    "demo": {      
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -41,7 +41,7 @@
             "styles": [
               "@taiga-ui/core/styles/taiga-ui-theme.less",
               "@taiga-ui/core/styles/taiga-ui-fonts.less",
-              "src/global_styles.css"
+              "src/styles.scss"
             ],
             "tsConfig": "tsconfig.app.json"
           }
@@ -62,7 +62,11 @@
       "prefix": "app",
       "projectType": "application",
       "root": "",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "sourceRoot": "src"
     }
   },
