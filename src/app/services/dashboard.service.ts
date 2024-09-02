@@ -1,29 +1,23 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable, InjectionToken } from "@angular/core";
 import { ComboBox } from "../components/ui/taiga/combo-box/combo-box.interface";
+import { AppConfig } from "../app.config";
+
+export const COMPONENT_TYPE_FILTER_CONFIG = new InjectionToken(
+  'component_type_filter_config',
+  {
+  providedIn: 'root',
+  factory: () => AppConfig.componentTypeFilter
+});
 
 @Injectable({
     providedIn: 'root',
   })
   export class DashboardService {
 
-    getToolbarFilterByComponenetTypeConfig(): ComboBox {
-      return {
-        label: 'Component type',
-        placeHolder: 'Component type',
-        items: [{
-            id: 1,
-            value: 'Text inputs'
-        },
-        {
-            id: 2,
-            value: 'Buttons'
-        },
-        {
-          id: 3,
-          value: 'Legacy'
-        }
-      ]
-      }
+    componentTypeFilterConfig = inject(COMPONENT_TYPE_FILTER_CONFIG);
+
+    getToolbarFilterByComponentTypeConfig(): ComboBox {
+      return this.componentTypeFilterConfig;
     }
 
   }
