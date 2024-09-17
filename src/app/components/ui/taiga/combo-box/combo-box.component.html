@@ -1,0 +1,12 @@
+<form [formGroup]="formGroupDirective.control">
+  <tui-combo-box [formControlName]="fControlName()" [stringify]="itemValue" tuiTextfieldSize="m">
+    @if (config().label) {
+      {{config().label}}
+    }
+    <tui-data-list-wrapper
+      *tuiDataList
+      [itemContent]="itemValue | tuiStringifyContent"
+      [items]="items() | tuiFilterByInput"
+    ></tui-data-list-wrapper>
+  </tui-combo-box>
+</form>

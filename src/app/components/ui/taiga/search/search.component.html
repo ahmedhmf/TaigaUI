@@ -1,0 +1,15 @@
+<search tuiSearch>
+    <form [formGroup]="formGroupDirective.control">
+      <fieldset>
+        <tui-textfield iconStart="@tui.search">
+          <label tuiLabel>Search</label>
+          <input
+            placeholder="Search"
+            tuiTextfield
+            [formControlName]="fControlName()"
+          />
+        </tui-textfield>
+        <button tuiButton>Search</button>
+      </fieldset>
+    </form>
+  </search>
