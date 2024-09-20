@@ -1,0 +1,25 @@
+.card {
+  background-color: #f6f6f6;
+  width: 35rem;
+  border: #e0e0e0 1px solid;
+  border-radius: 8px;
+  .content{
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer {
+    background-color: white;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    a{
+      color: #3170f9;
+      text-decoration: none;
+    }
+    a:hover{
+      color: var(--tui-text-primary);
+    }
+  }
+}
+
