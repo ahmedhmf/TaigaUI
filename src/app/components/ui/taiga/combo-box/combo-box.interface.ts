@@ -6,5 +6,5 @@ export type ComboBox = {
 
 export type ComboBoxItem = {
     id: number | string;
-    value: string;
+    label: string;
 }

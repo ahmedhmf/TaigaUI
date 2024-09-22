@@ -1,5 +1,4 @@
-import {Component, inject, input} from '@angular/core';
-import {TUI_IS_MOBILE} from "@taiga-ui/cdk";
+import {Component, input} from '@angular/core';
 import {NgClass} from "@angular/common";
 
 @Component({
@@ -12,7 +11,5 @@ import {NgClass} from "@angular/common";
   styleUrl: './element-container.component.scss'
 })
 export class ElementContainerComponent {
-  title= input<string>('');
-
-  protected readonly isMobile = inject(TUI_IS_MOBILE);
+  title= input<string>('');  
 }

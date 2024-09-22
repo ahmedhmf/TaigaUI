@@ -1,6 +1,6 @@
-<div style="flex-direction: column;">
+<div class="container">
     <h2>{{ title() }}</h2>
-    <div class="content" [ngClass]="isMobile? 'mobile-content': ''">
+    <div>
         <ng-content></ng-content>
     </div>
 </div>
