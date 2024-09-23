@@ -1,0 +1,27 @@
+<a
+        href="#"
+        iconStart="@tui.heart"
+        tuiLink
+        [style.--tui-icon-size.rem]="1.5"
+>
+    Large icon
+</a>
+<button
+        appearance="icon"
+        iconEnd="@tui.circle-help"
+        tuiLink
+        type="button"
+        [pseudo]="true"
+        (click)="onClick($event)"
+>
+    Pseudo-link
+</button>
+<p>
+    <a
+            href="#"
+            tuiLink
+            [style.color]="'var(--tui-text-negative)'"
+    >
+        Custom color
+    </a>
+</p>

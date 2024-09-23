@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  gap: 1rem;
+}
+
+.red {
+  color: var(--tui-text-negative);
+}
+
+.hover {
+
+  color: var(--tui-background-accent-1);
+
+  &:hover {
+    color: var(--tui-background-accent-1-hover);
+  }
+}
+
+.text {
+  color: var(--tui-text-secondary);
+}
