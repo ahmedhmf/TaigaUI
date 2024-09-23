@@ -1,6 +1,6 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { AfterViewInit, ChangeDetectionStrategy, Component, inject, output } from "@angular/core";
 import { ComboBoxComponent } from "../taiga/combo-box/combo-box.component";
-import { DashboardService } from "../../../services/dashboard.service";
+import { DashboardService, SearchFilter } from "../../../services/dashboard.service";
 import { FormBuilder, FormControl, ReactiveFormsModule } from "@angular/forms";
 import { SearchComponent } from "../taiga/search/search.component";
 
@@ -14,13 +14,18 @@ import { SearchComponent } from "../taiga/search/search.component";
   export class ToolbarComponent implements AfterViewInit {
     protected readonly dashboardService = inject(DashboardService);
     readonly #formBuilder = inject(FormBuilder);
+    onChange = output<SearchFilter>();
 
     searchForm = this.#formBuilder.group({
-        componentType: new FormControl(),
-        searchInput: new FormControl()
+        componentId: new FormControl<number>(-1),
+        searchInput: new FormControl<string>('')
     });
 
     ngAfterViewInit(): void {
-        this.searchForm.valueChanges.subscribe(x => console.log(x))
+      this.searchForm.valueChanges.subscribe(value => {                         
+        this.onChange.emit({
+          id: value.componentId,
+          query: value.searchInput} as SearchFilter);
+      });
     }
   }

@@ -1,5 +1,5 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, computed, inject, input, OnInit, signal } from '@angular/core';
-import {FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { FormGroupDirective, ReactiveFormsModule} from '@angular/forms';
 import {TuiDataList} from '@taiga-ui/core';
 import {TuiComboBoxModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
 import {
@@ -36,7 +36,7 @@ export class ComboBoxComponent {
 
   @tuiPure
   itemValue(id: number | string) {    
-    return this.config().items.find((item) => item.id === id)?.value || '';
+    return this.config().items.find((item) => item.id === id)?.label || '';
   }
   
 }
