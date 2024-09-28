@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TuiBadge, tuiBadgeOptionsProvider } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-badge-di',
   standalone: true,
-  imports: [],
+  imports: [TuiBadge],
   templateUrl: './badge-di.component.html',
-  styleUrl: './badge-di.component.scss'
+  styleUrl: './badge-di.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [tuiBadgeOptionsProvider({ appearance: 'primary' })],
 })
-export class BadgeDiComponent {
-
-}
+export class BadgeDiComponent {}
