@@ -57,7 +57,7 @@ const components: ComponentStructure[] = [
     component: ButtonLoadingComponent,
   },
   {
-    id: 4,
+    id: 5,
     label: 'Button With DI',
     title: 'Button With DI',
     description: 'Button that user can configure using Dependency Injection',
@@ -65,7 +65,7 @@ const components: ComponentStructure[] = [
     component: ButtonDiComponent,
   },
   {
-    id: 5,
+    id: 6,
     label: 'Button Vertical',
     title: 'Button Vertical',
     description: 'Button with Icon in a vertical design',
@@ -73,7 +73,7 @@ const components: ComponentStructure[] = [
     component: ButtonVerticalComponent,
   },
   {
-    id: 6,
+    id: 7,
     label: 'Links',
     title: 'Link',
     description: 'Link Control',
@@ -81,7 +81,7 @@ const components: ComponentStructure[] = [
     component: LinkComponent,
   },
   {
-    id: 7,
+    id: 8,
     label: 'Links Icons',
     title: 'Link with Icon',
     description: 'A Link with an icon',
@@ -89,7 +89,7 @@ const components: ComponentStructure[] = [
     component: LinkIconsComponent,
   },
   {
-    id: 8,
+    id: 9,
     label: 'Links Variants',
     title: 'Link Variants',
     description: 'Variants of how links look like',
@@ -97,7 +97,7 @@ const components: ComponentStructure[] = [
     component: LinkVariantsComponent,
   },
   {
-    id: 9,
+    id: 10,
     label: 'Long Text Links',
     title: 'Long Text Link',
     description: 'Setting a long text to be a link',
@@ -105,7 +105,7 @@ const components: ComponentStructure[] = [
     component: LinkLongTextComponent,
   },
   {
-    id: 10,
+    id: 11,
     label: 'Icons',
     title: 'Icon',
     description: 'Icon Control',
@@ -113,7 +113,7 @@ const components: ComponentStructure[] = [
     component: IconComponent,
   },
   {
-    id: 11,
+    id: 12,
     label: 'External Icons',
     title: 'External Icons',
     description: 'Icons from external source',
@@ -121,7 +121,7 @@ const components: ComponentStructure[] = [
     component: IconExternalComponent,
   },
   {
-    id: 12,
+    id: 13,
     label: 'Two Colors Icons',
     title: 'Two Colors Icons',
     description: 'Icons with 2 colors',
@@ -129,7 +129,7 @@ const components: ComponentStructure[] = [
     component: IconTwoColorsComponent,
   },
   {
-    id: 13,
+    id: 14,
     label: 'Resolver Icons',
     title: 'Resolver Icons',
     description: 'User can provide your Icons using resolvers',
