@@ -1,21 +1,36 @@
-.main-content-wrapper {
-    display: flex;
-    flex-wrap: wrap;    
-    margin-left: -10px;
-    margin-right: -10px;
+.header {
+    background: lightslategrey;
+    height: 115px;
 
-    .column {
-        flex: 0 0 33.333333%;                
-        max-width: 33.333333%;             
+    &:before, &:after {
+        display: none;
     }
 }
+
+.main-navigation {
+    display: block;
+    
+    .main-content-wrapper {
+        display: flex;
+        flex-wrap: wrap;    
+        margin-left: -8px;
+        margin-right: -8px;
+    
+        .column {
+            flex: 0 0 33.333333%;                
+            max-width: 33.333333%;             
+        }
+    }
+}
+
+
 
 @media screen and (max-width: 992px) {
     .main-content-wrapper {
         flex-direction: column;
 
         .column {
-            max-width: 100%;
+            max-width: 100% !important;
         }
     }
 }
