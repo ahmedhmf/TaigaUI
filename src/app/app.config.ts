@@ -1,4 +1,5 @@
 import { Type } from '@angular/core';
+import { badgeComponents } from './badge-components.config';
 import { ButtonCloseComponent } from './components/ui/button/button-close/button-close.component';
 import { ButtonDiComponent } from './components/ui/button/button-di/button-di.component';
 import { ButtonGroupComponent } from './components/ui/button/button-group/button-group.component';
@@ -23,9 +24,8 @@ export type ComponentStructure = {
   component: Type<unknown>;
 };
 
-const components: ComponentStructure[] = [
+const components: Omit<ComponentStructure, 'id'>[] = [
   {
-    id: 1,
     label: 'Buttons',
     title: 'Button',
     description: 'Button Control',
@@ -33,7 +33,6 @@ const components: ComponentStructure[] = [
     component: ButtonComponent,
   },
   {
-    id: 2,
     label: 'Buttons Close',
     title: 'Button Close',
     description: 'Close Button Control',
@@ -41,7 +40,6 @@ const components: ComponentStructure[] = [
     component: ButtonCloseComponent,
   },
   {
-    id: 3,
     label: 'Button Group',
     title: 'Button Group',
     description: 'Grouping Buttons in one control',
@@ -49,7 +47,6 @@ const components: ComponentStructure[] = [
     component: ButtonGroupComponent,
   },
   {
-    id: 4,
     label: 'Button Loading',
     title: 'Button Loading',
     description: 'Button with a loading wheel',
@@ -57,7 +54,6 @@ const components: ComponentStructure[] = [
     component: ButtonLoadingComponent,
   },
   {
-    id: 4,
     label: 'Button With DI',
     title: 'Button With DI',
     description: 'Button that user can configure using Dependency Injection',
@@ -65,7 +61,6 @@ const components: ComponentStructure[] = [
     component: ButtonDiComponent,
   },
   {
-    id: 5,
     label: 'Button Vertical',
     title: 'Button Vertical',
     description: 'Button with Icon in a vertical design',
@@ -73,7 +68,6 @@ const components: ComponentStructure[] = [
     component: ButtonVerticalComponent,
   },
   {
-    id: 6,
     label: 'Links',
     title: 'Link',
     description: 'Link Control',
@@ -81,7 +75,6 @@ const components: ComponentStructure[] = [
     component: LinkComponent,
   },
   {
-    id: 7,
     label: 'Links Icons',
     title: 'Link with Icon',
     description: 'A Link with an icon',
@@ -89,7 +82,6 @@ const components: ComponentStructure[] = [
     component: LinkIconsComponent,
   },
   {
-    id: 8,
     label: 'Links Variants',
     title: 'Link Variants',
     description: 'Variants of how links look like',
@@ -97,7 +89,6 @@ const components: ComponentStructure[] = [
     component: LinkVariantsComponent,
   },
   {
-    id: 9,
     label: 'Long Text Links',
     title: 'Long Text Link',
     description: 'Setting a long text to be a link',
@@ -105,7 +96,6 @@ const components: ComponentStructure[] = [
     component: LinkLongTextComponent,
   },
   {
-    id: 10,
     label: 'Icons',
     title: 'Icon',
     description: 'Icon Control',
@@ -113,7 +103,6 @@ const components: ComponentStructure[] = [
     component: IconComponent,
   },
   {
-    id: 11,
     label: 'External Icons',
     title: 'External Icons',
     description: 'Icons from external source',
@@ -121,7 +110,6 @@ const components: ComponentStructure[] = [
     component: IconExternalComponent,
   },
   {
-    id: 12,
     label: 'Two Colors Icons',
     title: 'Two Colors Icons',
     description: 'Icons with 2 colors',
@@ -129,20 +117,26 @@ const components: ComponentStructure[] = [
     component: IconTwoColorsComponent,
   },
   {
-    id: 13,
     label: 'Resolver Icons',
     title: 'Resolver Icons',
     description: 'User can provide your Icons using resolvers',
     url: 'https://taiga-ui.dev/components/icon#resolver',
     component: IconResolverComponent,
   },
+  ...badgeComponents,
 ];
 
+// compute id to avoid error
+const componentsWithIds: ComponentStructure[] = components.map((c, idx) => ({
+  ...c,
+  id: idx + 1,
+}));
+
 export const AppConfig = {
-  components,
+  components: componentsWithIds,
   componentTypeFilter: {
     label: 'Component type',
     placeHolder: 'Component type',
-    items: components.map(({ id, label }) => ({ id, label })),
+    items: componentsWithIds.map(({ id, label }) => ({ id, label })),
   },
 };
