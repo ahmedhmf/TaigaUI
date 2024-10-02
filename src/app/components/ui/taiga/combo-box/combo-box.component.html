@@ -1,5 +1,5 @@
 <form [formGroup]="formGroupDirective.control">
-  <tui-combo-box [formControlName]="fControlName()" [stringify]="itemValue" tuiTextfieldSize="m">
+  <tui-combo-box [formControlName]="fControlName()" [stringify]="itemValue" tuiTextfieldSize="m" [tuiTextfieldCleaner]="true">
     @if (config().label) {
       {{config().label}}
     }

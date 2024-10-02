@@ -10,7 +10,7 @@ import { DashboardComponent } from "./app/dashboard/dashboard.component";
   standalone: true,
   imports: [TuiRoot, DashboardComponent],
   template: `
-  	<tui-root class="p-6">      
+  	<tui-root>      
       <app-dashboard />      
     </tui-root>
   `,
