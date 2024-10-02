@@ -1,0 +1,12 @@
+// @import '@taiga-ui/core/styles/taiga-ui-local.less';
+
+//  .custom-1 {
+//      .gradient(#0094cf, #24c0ff);
+//      box-shadow: var(--tui-shadow-small);
+//  }
+
+// temp workaround
+.custom-1 {
+  background-image: linear-gradient(45deg, #0094cf 0%, #24c0ff 100%);
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
+}
