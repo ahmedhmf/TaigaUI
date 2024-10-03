@@ -14,6 +14,7 @@ import { LinkIconsComponent } from './components/ui/link/link-icons/link-icons.c
 import { LinkLongTextComponent } from './components/ui/link/link-long-text/link-long-text.component';
 import { LinkVariantsComponent } from './components/ui/link/link-variants/link-variants.component';
 import { LinkComponent } from './components/ui/link/link.component';
+import { loaderComponents } from './loader-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -124,6 +125,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
     component: IconResolverComponent,
   },
   ...badgeComponents,
+  ...loaderComponents,
 ];
 
 // compute id to avoid error
