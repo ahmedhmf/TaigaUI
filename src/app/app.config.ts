@@ -126,7 +126,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   },
   ...badgeComponents,
   ...loaderComponents,
-];
+].sort((a, b) => a.component.name.localeCompare(b.component.name)); // if we well prefix every componet name it works for us
 
 // compute id to avoid error
 const componentsWithIds: ComponentStructure[] = components.map((c, idx) => ({
