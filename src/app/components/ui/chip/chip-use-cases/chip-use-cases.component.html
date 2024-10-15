@@ -1,0 +1,17 @@
+<tui-chip appearance="custom" iconEnd="@tui.thumbs-up">
+  Customized chip
+</tui-chip>
+
+<tui-chip [appearance]="selected ? 'primary' : 'neutral'">
+  Toggle chip
+  <button
+    iconStart="@tui.plus"
+    tuiIconButton
+    type="button"
+    class="toggle"
+    [style.transform]="selected ? 'rotate(45deg)' : 'rotate(0)'"
+    (click)="selected = !selected"
+  >
+    Toggle
+  </button>
+</tui-chip>

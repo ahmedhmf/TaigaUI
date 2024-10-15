@@ -1,22 +1,22 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
-import {TuiSearch} from '@taiga-ui/layout';
-import {TuiTextfield} from '@taiga-ui/core'; 
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
+import { TuiSearch } from '@taiga-ui/layout';
+import { TuiTextfield, TuiButton } from '@taiga-ui/core';
 import { FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-search',
-    standalone: true,
-    templateUrl: './search.component.html',
-    imports: [    
-        ReactiveFormsModule,
-        TuiSearch, 
-        TuiTextfield
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-search',
+  standalone: true,
+  templateUrl: './search.component.html',
+  imports: [ReactiveFormsModule, TuiSearch, TuiTextfield, TuiButton],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent {
+  public readonly fControlName = input<string>('');
 
-    public readonly fControlName = input<string>('');
-
-    protected readonly formGroupDirective = inject(FormGroupDirective);
+  protected readonly formGroupDirective = inject(FormGroupDirective);
 }

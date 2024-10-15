@@ -1,0 +1,15 @@
+<section>
+  <tui-chip
+    *ngFor="let size of sizes"
+    [size]="size"
+    [style.border-radius.rem]="5"
+  >
+    Text
+  </tui-chip>
+</section>
+
+<section>
+  <tui-chip *ngFor="let size of sizes" iconStart="@tui.bell" [size]="size">
+    Single icon
+  </tui-chip>
+</section>
