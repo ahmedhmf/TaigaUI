@@ -1,9 +1,9 @@
+import { LoaderBackgroundComponent } from '../components/ui/loader/loader-background/loader-background.component';
+import { LoaderCustomWidthComponent } from '../components/ui/loader/loader-custom-width/loader-custom-width.component';
+import { LoaderOptionsComponent } from '../components/ui/loader/loader-options/loader-options.component';
+import { LoaderOverlayComponent } from '../components/ui/loader/loader-overlay/loader-overlay.component';
+import { LoadingButtonComponent } from '../components/ui/loader/loading-button/loading-button.component';
 import { ComponentStructure } from './app.config';
-import { LoaderBackgroundComponent } from './components/ui/loader/loader-background/loader-background.component';
-import { LoaderCustomWidthComponent } from './components/ui/loader/loader-custom-width/loader-custom-width.component';
-import { LoaderOptionsComponent } from './components/ui/loader/loader-options/loader-options.component';
-import { LoaderOverlayComponent } from './components/ui/loader/loader-overlay/loader-overlay.component';
-import { LoadingButtonComponent } from './components/ui/loader/loading-button/loading-button.component';
 
 export const loaderComponents: Omit<ComponentStructure, 'id'>[] = [
   {
