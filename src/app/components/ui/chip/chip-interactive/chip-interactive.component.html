@@ -1,0 +1,31 @@
+<h3>Button</h3>
+<section>
+  <button
+    *tuiRepeatTimes="let i of 3"
+    tuiChip
+    type="button"
+    (click)="onChip(i)"
+  >
+    Button {{ i + 1 }}
+    <button
+      iconStart="@tui.x"
+      tuiIconButton
+      type="button"
+      (click.stop)="onX(i)"
+    >
+      Remove
+    </button>
+  </button>
+</section>
+
+<h3>Input</h3>
+<section>
+  <tui-chip
+    *tuiRepeatTimes="let i of values.length"
+    appearance=""
+    [style.color]="'transparent'"
+  >
+    {{ values[i] }}
+    <input tuiChip [(ngModel)]="values[i]" />
+  </tui-chip>
+</section>
