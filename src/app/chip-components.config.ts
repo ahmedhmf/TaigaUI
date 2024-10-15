@@ -6,28 +6,28 @@ import { ChipComponent } from './components/ui/chip/chip.component';
 
 export const chipComponents: Omit<ComponentStructure, 'id'>[] = [
   {
-    label: 'Chips',
-    title: 'Chip',
+    label: 'Chip',
+    title: 'Chip Basic',
     description: 'Chip Control',
     url: 'https://taiga-ui.dev/components/chip',
     component: ChipComponent,
   },
   {
-    label: 'Chips',
+    label: 'Chip Sizes and Content',
     title: 'Chip Sizes and Content',
     description: 'Chip Sizes and Content',
     url: 'https://taiga-ui.dev/components/chip#sizes-and-content',
     component: ChipSizeContentComponent,
   },
   {
-    label: 'Chips',
+    label: 'Chip interactive',
     title: 'Chip interactive',
     description: 'Chip Sizes and Content',
     url: 'https://taiga-ui.dev/components/chip#interactive',
     component: ChipInteractiveComponent,
   },
   {
-    label: 'Chips',
+    label: 'Chip use cases',
     title: 'Chip Use Cases',
     description: 'Chip Use Cases',
     url: 'https://taiga-ui.dev/components/chip#use-cases',
