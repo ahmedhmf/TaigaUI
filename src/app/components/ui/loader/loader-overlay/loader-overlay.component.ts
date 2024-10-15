@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TuiLoader } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-loader-overlay',
   standalone: true,
-  imports: [],
+  imports: [TuiLoader],
   templateUrl: './loader-overlay.component.html',
-  styleUrl: './loader-overlay.component.scss'
+  styleUrl: './loader-overlay.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoaderOverlayComponent {
 
