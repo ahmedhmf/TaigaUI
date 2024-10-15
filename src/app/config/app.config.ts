@@ -4,6 +4,7 @@ import { buttonComponents } from './button-components.config';
 import { chipComponents } from './chip-components.config';
 import { iconComponents } from './icon-components.config';
 import { linkComponents } from './link-components.config';
+import { loaderComponents } from './loader-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -20,6 +21,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   ...iconComponents,
   ...badgeComponents,
   ...chipComponents,
+  ...loaderComponents,
 ].sort((a, b) => a.component.name.localeCompare(b.component.name));
 
 // compute id to avoid error
