@@ -5,7 +5,7 @@ import {
   InjectionToken,
   signal,
 } from '@angular/core';
-import { AppConfig, ComponentStructure } from '../app.config';
+import { AppConfig, ComponentStructure } from '../config/app.config';
 import { ComboBox } from '../components/ui/taiga/combo-box/combo-box.interface';
 
 export const COMPONENT_TYPE_FILTER_CONFIG = new InjectionToken(

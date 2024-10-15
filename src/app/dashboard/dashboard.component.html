@@ -1,15 +1,18 @@
-<div class="p-16">
-    <app-toolbar (onChange)="dashboardService.onSearchChange($event)"></app-toolbar>
 
-    <div class="main-content-wrapper">
-        @for (item of dashboardService.state(); track $index) {   
-            <div class="column">
-                <app-element-container [title]="item.title">
-                    <app-element-card [title]="item.title" [description]="item.description" [url]="item.url">
-                        <ng-container *ngComponentOutlet="item.component"></ng-container>
-                    </app-element-card>
-                </app-element-container>
-            </div>
-        }
-    </div>
-</div>
+    <header tuiNavigationHeader class="header">
+        <app-toolbar class="w-full" (onChange)="dashboardService.onSearchChange($event)"></app-toolbar>        
+    </header>
+    <main tuiNavigationMain class="main-navigation">
+        <div class="main-content-wrapper">
+            @for (item of dashboardService.state(); track $index) {   
+                <div class="column">
+                    <app-element-container [title]="item.title">
+                        <app-element-card [title]="item.title" [description]="item.description" [url]="item.url">
+                            <ng-container *ngComponentOutlet="item.component"></ng-container>
+                        </app-element-card>
+                    </app-element-container>
+                </div>
+            }
+        </div>
+    </main>                
+
