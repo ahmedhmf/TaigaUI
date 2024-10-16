@@ -1,8 +1,15 @@
-.no-items {
-  display: block;
-  margin: 1.25rem;
-  padding: 1rem;
-  text-align: center;
-  font-size: large;
-  color: darkslategray;
+:host {
+  margin: 1rem auto;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
 }
