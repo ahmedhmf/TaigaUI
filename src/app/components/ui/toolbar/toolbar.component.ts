@@ -1,31 +1,65 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, inject, output } from "@angular/core";
-import { ComboBoxComponent } from "../taiga/combo-box/combo-box.component";
-import { DashboardService, SearchFilter } from "../../../services/dashboard.service";
-import { FormBuilder, FormControl, ReactiveFormsModule } from "@angular/forms";
-import { SearchComponent } from "../taiga/search/search.component";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  output,
+} from '@angular/core';
+import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import {
+  DashboardService,
+  SearchFilter,
+} from '../../../services/dashboard.service';
+import { ComboBoxComponent } from '../taiga/combo-box/combo-box.component';
+import { SearchComponent } from '../taiga/search/search.component';
+
+export interface SearchForm {
+  componentId: FormControl<number>;
+  searchInput: FormControl<string>;
+}
 
 @Component({
-    selector: 'app-toolbar',
-    standalone: true,
-    templateUrl: './toolbar.component.html',    
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [ReactiveFormsModule, ComboBoxComponent, SearchComponent],
-  })
-  export class ToolbarComponent implements AfterViewInit {
-    protected readonly dashboardService = inject(DashboardService);
-    readonly #formBuilder = inject(FormBuilder);
-    onChange = output<SearchFilter>();
+  selector: 'app-toolbar',
+  standalone: true,
+  templateUrl: './toolbar.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ReactiveFormsModule, ComboBoxComponent, SearchComponent],
+})
+export class ToolbarComponent implements AfterViewInit {
+  protected readonly dashboardService = inject(DashboardService);
+  readonly #formBuilder = inject(FormBuilder);
+  onChange = output<SearchFilter>();
 
-    searchForm = this.#formBuilder.group({
-        componentId: new FormControl<number>(-1),
-        searchInput: new FormControl<string>('')
-    });
+  searchForm = this.#formBuilder.group<SearchForm>({
+    componentId: new FormControl(-1, {
+      nonNullable: true,
+    }),
+    searchInput: new FormControl('', {
+      nonNullable: true,
+    }),
+  });
 
-    ngAfterViewInit(): void {
-      this.searchForm.valueChanges.subscribe(value => {                         
+  ngAfterViewInit(): void {
+    this.searchForm
+      .get('componentId')
+      ?.valueChanges.subscribe((componentId: number) => {
+        this.searchForm.get('searchInput')?.setValue('', { emitEvent: false });
+
         this.onChange.emit({
-          id: value.componentId,
-          query: value.searchInput} as SearchFilter);
+          id: componentId,
+          query: '',
+        });
       });
-    }
+
+    this.searchForm
+      .get('searchInput')
+      ?.valueChanges.subscribe((query: string) => {
+        this.searchForm.get('componentId')?.setValue(-1, { emitEvent: false });
+
+        this.onChange.emit({
+          id: -1,
+          query,
+        });
+      });
   }
+}
