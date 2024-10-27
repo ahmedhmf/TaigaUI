@@ -1,4 +1,7 @@
 <div [formGroup]="searchForm">
-    <app-combo-box [config]="dashboardService.getToolbarFilterByComponentTypeConfig()" [fControlName]="'componentId'"></app-combo-box>
-    <app-search [fControlName]="'searchInput'"></app-search>
+  <app-combo-box
+    [config]="dashboardService.getToolbarFilterByComponentTypeConfig()"
+    [fControlName]="'componentId'"
+  ></app-combo-box>
+  <app-search [fControlName]="'searchInput'"></app-search>
 </div>
