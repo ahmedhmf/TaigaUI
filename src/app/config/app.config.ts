@@ -30,7 +30,11 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   hintComponents
 ].reduce(
   (acc, curr) => [...acc, ...curr], [])
-.sort((a, b) => a.component.name.localeCompare(b.component.name));
+.sort((a, b) => {
+  console.log(a.title)
+  console.log(b.title)
+  return a.title.localeCompare(b.title);
+});
 
 
 // compute id to avoid error
