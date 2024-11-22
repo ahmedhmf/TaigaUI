@@ -2,6 +2,7 @@ import { Type } from '@angular/core';
 import { badgeComponents } from './badge-components.config';
 import { buttonComponents } from './button-components.config';
 import { chipComponents } from './chip-components.config';
+import { errorComponents } from './error-components.config';
 import { iconComponents } from './icon-components.config';
 import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
@@ -19,6 +20,7 @@ export type ComponentStructure = {
 const components: Omit<ComponentStructure, 'id'>[] = [
   buttonComponents,
   linkComponents,
+  errorComponents,
   iconComponents,
   badgeComponents,
   chipComponents,
