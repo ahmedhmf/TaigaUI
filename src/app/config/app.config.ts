@@ -18,15 +18,17 @@ export type ComponentStructure = {
 };
 
 const components: Omit<ComponentStructure, 'id'>[] = [
-  ...buttonComponents,
-  ...linkComponents,
-  ...iconComponents,
-  ...badgeComponents,
-  ...chipComponents,
-  ...loaderComponents,
-  ...notificationComponents,
-  ...errorComponents,
-].sort((a, b) => a.component.name.localeCompare(b.component.name));
+  buttonComponents,
+  linkComponents,
+  errorComponents,
+  iconComponents,
+  badgeComponents,
+  chipComponents,
+  loaderComponents,
+  notificationComponents,
+].reduce(
+  (acc, curr) => [...acc, ...curr], [])
+.sort((a, b) => a.component.name.localeCompare(b.component.name));
 
 // compute id to avoid error
 const componentsWithIds: ComponentStructure[] = components.map((c, idx) => ({
