@@ -1,6 +1,6 @@
-import { NotificationBasicComponent } from '../components/ui/notification-basic/notification-basic.component';
-import { NotificationInteractiveComponent } from '../components/ui/notification-interactive/notification-interactive.component';
-import { NotificationOptionsComponent } from '../components/ui/notification-options/notification-options.component';
+import { NotificationBasicComponent } from '../components/ui/notification/notification-basic/notification-basic.component';
+import { NotificationInteractiveComponent } from '../components/ui/notification/notification-interactive/notification-interactive.component';
+import { NotificationOptionsComponent } from '../components/ui/notification/notification-options/notification-options.component';
 import { ComponentStructure } from './app.config';
 
 export const notificationComponents: Omit<ComponentStructure, 'id'>[] = [
