@@ -3,6 +3,7 @@ import { badgeComponents } from './badge-components.config';
 import { buttonComponents } from './button-components.config';
 import { chipComponents } from './chip-components.config';
 import { hintComponents } from './hint-components.config';
+import { errorComponents } from './error-components.config';
 import { iconComponents } from './icon-components.config';
 import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
@@ -25,7 +26,8 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   ...chipComponents,
   ...loaderComponents,
   ...notificationComponents,
-  ...hintComponents
+  ...hintComponents,
+  ...errorComponents,
 ].sort((a, b) => a.component.name.localeCompare(b.component.name));
 
 // compute id to avoid error
