@@ -3,7 +3,7 @@
   width: 100%;
   border: #e0e0e0 1px solid;
   border-radius: 8px;
-  .content{
+  .content {
     height: 10rem;
     display: flex;
     align-items: center;
@@ -13,13 +13,15 @@
     background-color: white;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    a{
+    a {
       color: #3170f9;
       text-decoration: none;
     }
-    a:hover{
+    a:hover {
       color: var(--tui-text-primary);
+    }
+    p {
+      margin: 0;
     }
   }
 }
-

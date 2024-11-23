@@ -1,17 +1,12 @@
-<div
-        tuiCardLarge
-        tuiSurface="elevated"
-        class="card"
->
-    <div tuiCell class="p-8">
-        <div class="content">
-            <ng-content></ng-content>
-        </div>
-
+<div tuiCardLarge tuiSurface="elevated" class="card">
+  <div tuiCell class="p-8">
+    <div class="content">
+      <ng-content></ng-content>
     </div>
+  </div>
 
-    <footer class="p-8">
-        <a style="background-color: white;margin: 0" [href]="url()">{{ title() }}</a>
-        <p style="margin: 0">{{ description() }}</p>
-    </footer>
+  <footer class="p-8">
+    <a [href]="url()">{{ title() }}</a>
+    <p>{{ description() }}</p>
+  </footer>
 </div>

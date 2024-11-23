@@ -11,19 +11,18 @@ import { ComboBox } from './combo-box.interface';
 import { tuiPure } from '@taiga-ui/cdk';
  
 @Component({
-  selector: 'app-combo-box',
-  standalone: true,
-  templateUrl: './combo-box.component.html',
-  imports: [    
-    ReactiveFormsModule,       
-    TuiDataListWrapper,
-    TuiDataList,
-    TuiFilterByInputPipe,
-    TuiStringifyContentPipe,
-    TuiTextfieldControllerModule,
-    TuiComboBoxModule, 
-  ],  
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-combo-box',
+    templateUrl: './combo-box.component.html',
+    imports: [
+        ReactiveFormsModule,
+        TuiDataListWrapper,
+        TuiDataList,
+        TuiFilterByInputPipe,
+        TuiStringifyContentPipe,
+        TuiTextfieldControllerModule,
+        TuiComboBoxModule,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ComboBoxComponent {
 

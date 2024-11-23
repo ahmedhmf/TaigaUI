@@ -19,11 +19,10 @@ export interface SearchForm {
 }
 
 @Component({
-  selector: 'app-toolbar',
-  standalone: true,
-  templateUrl: './toolbar.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, ComboBoxComponent, SearchComponent],
+    selector: 'app-toolbar',
+    templateUrl: './toolbar.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ReactiveFormsModule, ComboBoxComponent, SearchComponent]
 })
 export class ToolbarComponent implements AfterViewInit {
   protected readonly dashboardService = inject(DashboardService);
