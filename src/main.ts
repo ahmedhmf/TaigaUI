@@ -6,14 +6,13 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { DashboardComponent } from "./app/dashboard/dashboard.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [TuiRoot, DashboardComponent],
-  template: `
+    selector: 'app-root',
+    imports: [TuiRoot, DashboardComponent],
+    template: `
   	<tui-root>      
       <app-dashboard />      
     </tui-root>
-  `,
+  `
 })
 export class App {  
 }

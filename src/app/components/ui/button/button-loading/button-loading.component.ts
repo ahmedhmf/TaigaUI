@@ -6,11 +6,10 @@ import { map, startWith, Subject, switchMap, timer } from 'rxjs';
 import { TUI_FALSE_HANDLER } from '@taiga-ui/cdk';
 
 @Component({
-  selector: 'app-button-loading',
-  standalone: true,
-  imports: [AsyncPipe, TuiButton, TuiButtonLoading],
-  templateUrl: './button-loading.component.html',
-  styleUrl: './button-loading.component.scss',
+    selector: 'app-button-loading',
+    imports: [AsyncPipe, TuiButton, TuiButtonLoading],
+    templateUrl: './button-loading.component.html',
+    styleUrl: './button-loading.component.scss'
 })
 export class ButtonLoadingComponent {
   protected readonly trigger$ = new Subject<void>();
