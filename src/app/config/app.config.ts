@@ -9,6 +9,7 @@ import { iconComponents } from "./icon-components.config";
 import { linkComponents } from "./link-components.config";
 import { loaderComponents } from "./loader-components.config";
 import { notificationComponents } from "./notification-components.config";
+import { blockComponents } from "./block-components.config";
 
 export type ComponentStructure = {
   id: number;
@@ -30,6 +31,7 @@ const components: Omit<ComponentStructure, "id">[] = [
   notificationComponents,
   hintComponents,
   alertComponents,
+  blockComponents
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

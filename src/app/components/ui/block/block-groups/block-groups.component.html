@@ -1,0 +1,38 @@
+<h3 class="title">Horizontal group</h3>
+<form
+    tuiGroup
+    class="group"
+    [collapsed]="true"
+    [formGroup]="testForm"
+>
+    <label tuiBlock="m">
+        <input
+            formControlName="testValue"
+            tuiRadio
+            type="radio"
+            value="oranges"
+            
+        />
+        Oranges
+    </label>
+    <label tuiBlock="m">
+        <input
+            formControlName="testValue"
+            tuiRadio
+            type="radio"
+            value="apples"
+           
+        />
+        Apples
+    </label>
+    <label tuiBlock="m">
+        <input
+            formControlName="testValue"
+            tuiRadio
+            type="radio"
+            value="pineapples"
+            
+        />
+        <span tuiFade>Pineapples</span>
+    </label>
+</form>
