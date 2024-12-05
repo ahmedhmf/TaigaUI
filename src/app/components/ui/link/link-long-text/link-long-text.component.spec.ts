@@ -8,9 +8,8 @@ describe('LinkLongTextComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkLongTextComponent]
-    })
-    .compileComponents();
+      imports: [LinkLongTextComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LinkLongTextComponent);
     component = fixture.componentInstance;

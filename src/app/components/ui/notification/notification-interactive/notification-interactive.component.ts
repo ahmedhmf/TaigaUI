@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { TuiNotification, TuiAlertService } from "@taiga-ui/core";
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { TuiNotification, TuiAlertService } from '@taiga-ui/core';
 
 @Component({
-  selector: "app-notification-interactive",
+  selector: 'app-notification-interactive',
   imports: [TuiNotification],
-  templateUrl: "./notification-interactive.component.html",
-  styleUrl: "./notification-interactive.component.scss",
+  templateUrl: './notification-interactive.component.html',
+  styleUrl: './notification-interactive.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationInteractiveComponent {
@@ -13,8 +13,8 @@ export class NotificationInteractiveComponent {
 
   showNotification(): void {
     this.alertService
-      .open("This is an interactive notification!", {
-        label: "Notification Title",
+      .open('This is an interactive notification!', {
+        label: 'Notification Title',
       })
       .subscribe();
   }

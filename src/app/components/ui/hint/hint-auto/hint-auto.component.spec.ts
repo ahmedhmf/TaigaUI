@@ -8,9 +8,8 @@ describe('HintAutoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HintAutoComponent]
-    })
-    .compileComponents();
+      imports: [HintAutoComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HintAutoComponent);
     component = fixture.componentInstance;

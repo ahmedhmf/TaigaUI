@@ -8,9 +8,8 @@ describe('BlockSizesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlockSizesComponent]
-    })
-    .compileComponents();
+      imports: [BlockSizesComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BlockSizesComponent);
     component = fixture.componentInstance;
