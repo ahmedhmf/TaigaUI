@@ -1,9 +1,10 @@
 import { Type } from "@angular/core";
+import { alertComponents } from "./alert-components.config";
 import { badgeComponents } from "./badge-components.config";
 import { buttonComponents } from "./button-components.config";
 import { chipComponents } from "./chip-components.config";
-import { hintComponents } from "./hint-components.config";
 import { errorComponents } from "./error-components.config";
+import { hintComponents } from "./hint-components.config";
 import { iconComponents } from "./icon-components.config";
 import { linkComponents } from "./link-components.config";
 import { loaderComponents } from "./loader-components.config";
@@ -29,6 +30,7 @@ const components: Omit<ComponentStructure, "id">[] = [
   loaderComponents,
   notificationComponents,
   hintComponents,
+  alertComponents,
   blockComponents
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
