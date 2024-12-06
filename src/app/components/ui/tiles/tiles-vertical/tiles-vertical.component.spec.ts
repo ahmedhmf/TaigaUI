@@ -8,9 +8,8 @@ describe('TilesVerticalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TilesVerticalComponent]
-    })
-    .compileComponents();
+      imports: [TilesVerticalComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TilesVerticalComponent);
     component = fixture.componentInstance;

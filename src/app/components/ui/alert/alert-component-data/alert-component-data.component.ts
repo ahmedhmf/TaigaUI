@@ -8,69 +8,61 @@ import { injectContext, PolymorpheusComponent } from '@taiga-ui/polymorpheus';
 import { switchMap, takeUntil } from 'rxjs';
 
 @Component({
-    standalone: true,
-    exportAs: "Example4",
-    imports: [ CurrencyPipe, TuiButton, TuiLink],
-    template: `
-        <span tuiSubtitle>
-            <em>Your balance:</em>
-            {{ value | currency: 'RUB' }}
-        </span>
-        <div>
-            <button
-                tuiButton
-                type="button"
-                (click)="context.completeWith(value)"
-            >
-                Submit
-            </button>
-            <button
-                tuiLink
-                type="button"
-                (click)="increaseBalance()"
-            >
-                Increase
-            </button>
-        </div>
-    `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  exportAs: 'Example4',
+  imports: [CurrencyPipe, TuiButton, TuiLink],
+  template: `
+    <span tuiSubtitle>
+      <em>Your balance:</em>
+      {{ value | currency: 'RUB' }}
+    </span>
+    <div>
+      <button tuiButton type="button" (click)="context.completeWith(value)">
+        Submit
+      </button>
+      <button tuiLink type="button" (click)="increaseBalance()">
+        Increase
+      </button>
+    </div>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlertExampleWithData {
-    protected readonly context =
-        injectContext<TuiPopover<TuiAlertOptions<number>, number>>();
+  protected readonly context =
+    injectContext<TuiPopover<TuiAlertOptions<number>, number>>();
 
-    protected value = this.context.data;
+  protected value = this.context.data;
 
-    protected increaseBalance(): void {
-        this.value += 10;
-    }
+  protected increaseBalance(): void {
+    this.value += 10;
+  }
 }
 
 @Component({
   selector: 'app-alert-component-data',
-    standalone: true,
-    imports: [TuiButton],
-    templateUrl: './alert-component-data.component.html',
+  standalone: true,
+  imports: [TuiButton],
+  templateUrl: './alert-component-data.component.html',
   styleUrl: './alert-component-data.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export  class AlertComponentDataComponent {
-    private readonly alerts = inject(TuiAlertService);
-    private readonly notification = this.alerts
-        .open<number>(new PolymorpheusComponent(AlertExampleWithData), {
-            label: 'Heading is so long that it should be shown in two lines of text',
-            data: 237,
-            appearance: 'warning',
-            autoClose: 0,
-        })
-        .pipe(
-            switchMap((response) =>
-                this.alerts.open(`Got a value — ${response}`, {label: 'Information'}),
-            ),
-            takeUntil(inject(Router).events),
-        );
+export class AlertComponentDataComponent {
+  private readonly alerts = inject(TuiAlertService);
+  private readonly notification = this.alerts
+    .open<number>(new PolymorpheusComponent(AlertExampleWithData), {
+      label: 'Heading is so long that it should be shown in two lines of text',
+      data: 237,
+      appearance: 'warning',
+      autoClose: 0,
+    })
+    .pipe(
+      switchMap((response) =>
+        this.alerts.open(`Got a value — ${response}`, { label: 'Information' })
+      ),
+      takeUntil(inject(Router).events)
+    );
 
-    protected showNotification(): void {
-        this.notification.subscribe();
-    }
+  protected showNotification(): void {
+    this.notification.subscribe();
+  }
 }
