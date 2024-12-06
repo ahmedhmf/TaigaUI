@@ -6,6 +6,11 @@
   grid-auto-rows: minmax(var(--tui-height-m), auto);
 }
 
+@mixin transition-box-shadow {
+  transition: box-shadow 0.3s ease-in-out;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+}
+
 @media (max-width: var(--tui-mobile)) {
   .tile_tall {
     --tui-height: 2;
@@ -13,7 +18,7 @@
 }
 
 .content {
-  //  @include transition(box-shadow);
+  @include transition-box-shadow;
 
   display: flex;
   block-size: 100%;
