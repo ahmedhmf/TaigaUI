@@ -33,7 +33,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   hintComponents,
   alertComponents,
   blockComponents,
-  tilesComponents
+  tilesComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
