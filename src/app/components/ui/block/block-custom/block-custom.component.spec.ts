@@ -8,9 +8,8 @@ describe('BlockCustomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlockCustomComponent]
-    })
-    .compileComponents();
+      imports: [BlockCustomComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BlockCustomComponent);
     component = fixture.componentInstance;

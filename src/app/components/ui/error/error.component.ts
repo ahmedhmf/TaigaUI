@@ -5,11 +5,11 @@ import { TuiError, TuiLabel } from '@taiga-ui/core';
 import { TuiSwitch } from '@taiga-ui/kit';
 
 @Component({
-    selector: 'app-error',
-    imports: [FormsModule, TuiError, TuiLabel, TuiSwitch],
-    templateUrl: './error.component.html',
-    styleUrl: './error.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-error',
+  imports: [FormsModule, TuiError, TuiLabel, TuiSwitch],
+  templateUrl: './error.component.html',
+  styleUrl: './error.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorComponent {
   protected enabled = false;

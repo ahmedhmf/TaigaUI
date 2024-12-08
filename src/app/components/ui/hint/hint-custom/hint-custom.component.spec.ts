@@ -8,9 +8,8 @@ describe('HintCustomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HintCustomComponent]
-    })
-    .compileComponents();
+      imports: [HintCustomComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HintCustomComponent);
     component = fixture.componentInstance;

@@ -8,9 +8,8 @@ describe('HintNestedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HintNestedComponent]
-    })
-    .compileComponents();
+      imports: [HintNestedComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HintNestedComponent);
     component = fixture.componentInstance;

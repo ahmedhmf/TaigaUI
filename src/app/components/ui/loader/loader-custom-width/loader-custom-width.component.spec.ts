@@ -8,9 +8,8 @@ describe('LoaderCustomWidthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoaderCustomWidthComponent]
-    })
-    .compileComponents();
+      imports: [LoaderCustomWidthComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LoaderCustomWidthComponent);
     component = fixture.componentInstance;

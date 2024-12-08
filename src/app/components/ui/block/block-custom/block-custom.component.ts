@@ -12,13 +12,13 @@ import { TuiBlock, TuiSwitch, TuiTooltip } from '@taiga-ui/kit';
     TuiSwitch,
     TuiTitle,
     TuiTooltip,
-],
-changeDetection: ChangeDetectionStrategy.OnPush,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './block-custom.component.html',
-  styleUrl: './block-custom.component.scss'
+  styleUrl: './block-custom.component.scss',
 })
 export class BlockCustomComponent {
   protected readonly testForm = new FormGroup({
-    testValue3: new FormControl(false)
-});
+    testValue3: new FormControl(false),
+  });
 }

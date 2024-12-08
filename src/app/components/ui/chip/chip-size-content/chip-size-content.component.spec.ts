@@ -8,9 +8,8 @@ describe('ChipSizeContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChipSizeContentComponent]
-    })
-    .compileComponents();
+      imports: [ChipSizeContentComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChipSizeContentComponent);
     component = fixture.componentInstance;

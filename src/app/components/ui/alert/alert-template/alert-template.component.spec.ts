@@ -8,9 +8,8 @@ describe('AlertTemplateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlertTemplateComponent]
-    })
-    .compileComponents();
+      imports: [AlertTemplateComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AlertTemplateComponent);
     component = fixture.componentInstance;

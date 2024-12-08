@@ -3,12 +3,10 @@ import { TuiAutoColorPipe, TuiHint } from '@taiga-ui/core';
 import { TuiAvatar } from '@taiga-ui/kit';
 
 @Component({
-    selector: 'app-hint-custom',
-    imports: [TuiAutoColorPipe, TuiAvatar, TuiHint],
-    templateUrl: './hint-custom.component.html',
-    styleUrl: './hint-custom.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-hint-custom',
+  imports: [TuiAutoColorPipe, TuiAvatar, TuiHint],
+  templateUrl: './hint-custom.component.html',
+  styleUrl: './hint-custom.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HintCustomComponent {
-
-}
+export class HintCustomComponent {}

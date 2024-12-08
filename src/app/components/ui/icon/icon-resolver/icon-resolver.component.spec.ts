@@ -8,9 +8,8 @@ describe('IconResolverComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IconResolverComponent]
-    })
-    .compileComponents();
+      imports: [IconResolverComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(IconResolverComponent);
     component = fixture.componentInstance;
