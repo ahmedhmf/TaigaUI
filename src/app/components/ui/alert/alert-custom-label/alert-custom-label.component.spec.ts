@@ -8,9 +8,8 @@ describe('AlertCustomLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlertCustomLabelComponent]
-    })
-    .compileComponents();
+      imports: [AlertCustomLabelComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AlertCustomLabelComponent);
     component = fixture.componentInstance;

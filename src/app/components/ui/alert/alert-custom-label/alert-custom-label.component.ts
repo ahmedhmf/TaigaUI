@@ -3,17 +3,17 @@ import { Router } from "@angular/router";
 import type { TuiPopover } from "@taiga-ui/cdk";
 import type { TuiAlertOptions } from "@taiga-ui/core";
 import { TuiAlertService, TuiButton, TuiIcon } from "@taiga-ui/core";
+
 import {
   injectContext,
   PolymorpheusComponent,
-  PolymorpheusOutlet,
-  PolymorpheusTemplate,
-} from "@taiga-ui/polymorpheus";
-import { takeUntil } from "rxjs";
+  PolymorpheusOutlet
+} from '@taiga-ui/polymorpheus';
+import { takeUntil } from 'rxjs';
 
 @Component({
   standalone: true,
-  exportAs: "Example5",
+  exportAs: 'Example5',
   imports: [TuiIcon],
   template: `
     <label style="display: flex; align-items: center">
@@ -56,10 +56,10 @@ export class AlertCustomLabelComponent {
   private readonly notification = this.alerts
     .open(new PolymorpheusComponent(AlertExampleWithCustomLabel), {
       label: ({ appearance }) =>
-        appearance === "negative"
-          ? "Error label from function"
-          : "Info label from function",
-      appearance: "negative",
+        appearance === 'negative'
+          ? 'Error label from function'
+          : 'Info label from function',
+      appearance: 'negative',
       autoClose: 0,
     })
     .pipe(takeUntil(this.router.events));

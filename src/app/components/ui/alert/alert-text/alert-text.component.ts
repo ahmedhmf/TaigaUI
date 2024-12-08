@@ -6,14 +6,14 @@ import { TuiButton, TuiAlertService } from '@taiga-ui/core';
   imports: [TuiButton],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './alert-text.component.html',
-  styleUrl: './alert-text.component.scss'
+  styleUrl: './alert-text.component.scss',
 })
 export class AlertTextComponent {
   private readonly alerts = inject(TuiAlertService);
- 
+
   protected showNotification(): void {
-      this.alerts
-          .open('Basic <strong>HTML</strong>', {label: 'With a heading!'})
-          .subscribe();
+    this.alerts
+      .open('Basic <strong>HTML</strong>', { label: 'With a heading!' })
+      .subscribe();
   }
 }

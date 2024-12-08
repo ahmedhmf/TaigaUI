@@ -1,8 +1,22 @@
 @use '@taiga-ui/core/styles/taiga-ui-local';
 
+@mixin transition-box-shadow {
+  transition: box-shadow 0.3s ease-in-out;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+}
+@mixin transition-opacity {
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+}
+
 .tiles {
   gap: 1rem;
-  grid-auto-rows: minmax(6.25rem, auto);
+  grid-auto-rows: minmax(2rem, auto);
+
+  h2 {
+    font-size: 12px;
+    margin: -8px auto;
+  }
 }
 
 .tile::before {
@@ -18,7 +32,7 @@
 }
 
 .content {
-  // @include transition(box-shadow);
+  @include transition-box-shadow;
 
   block-size: 100%;
   padding: 1rem;
@@ -44,7 +58,7 @@
 }
 
 .handle {
-  // @include transition(opacity);
+  @include transition-opacity;
 
   position: absolute;
   right: 0.75rem;
