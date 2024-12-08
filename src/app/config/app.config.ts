@@ -1,15 +1,16 @@
-import { Type } from '@angular/core';
-import { badgeComponents } from './badge-components.config';
-import { buttonComponents } from './button-components.config';
-import { chipComponents } from './chip-components.config';
-import { hintComponents } from './hint-components.config';
-import { errorComponents } from './error-components.config';
-import { iconComponents } from './icon-components.config';
-import { linkComponents } from './link-components.config';
-import { loaderComponents } from './loader-components.config';
-import { notificationComponents } from './notification-components.config';
-import { blockComponents } from './block-components.config';
-import { tilesComponents } from './tiles-components.config';
+import { Type } from "@angular/core";
+import { alertComponents } from "./alert-components.config";
+import { badgeComponents } from "./badge-components.config";
+import { blockComponents } from "./block-components.config";
+import { buttonComponents } from "./button-components.config";
+import { chipComponents } from "./chip-components.config";
+import { errorComponents } from "./error-components.config";
+import { hintComponents } from "./hint-components.config";
+import { iconComponents } from "./icon-components.config";
+import { linkComponents } from "./link-components.config";
+import { loaderComponents } from "./loader-components.config";
+import { notificationComponents } from "./notification-components.config";
+import { tilesComponents } from "./tiles-components.config";
 
 export type ComponentStructure = {
   id: number;
@@ -30,8 +31,9 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   loaderComponents,
   notificationComponents,
   hintComponents,
+  alertComponents,
   blockComponents,
-  tilesComponents,
+  tilesComponents
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
