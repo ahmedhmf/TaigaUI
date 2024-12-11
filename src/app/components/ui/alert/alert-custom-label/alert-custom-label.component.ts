@@ -1,19 +1,19 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { Router } from "@angular/router";
-import type { TuiPopover } from "@taiga-ui/cdk";
-import type { TuiAlertOptions } from "@taiga-ui/core";
-import { TuiAlertService, TuiButton, TuiIcon } from "@taiga-ui/core";
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import type { TuiPopover } from '@taiga-ui/cdk';
+import type { TuiAlertOptions } from '@taiga-ui/core';
+import { TuiAlertService, TuiButton, TuiIcon } from '@taiga-ui/core';
+
 import {
   injectContext,
   PolymorpheusComponent,
   PolymorpheusOutlet,
-  PolymorpheusTemplate,
-} from "@taiga-ui/polymorpheus";
-import { takeUntil } from "rxjs";
+} from '@taiga-ui/polymorpheus';
+import { takeUntil } from 'rxjs';
 
 @Component({
   standalone: true,
-  exportAs: "Example5",
+  exportAs: 'Example5',
   imports: [TuiIcon],
   template: `
     <label style="display: flex; align-items: center">
@@ -43,10 +43,10 @@ class AlertExampleWithCustomLabel {
 }
 
 @Component({
-  selector: "app-alert-custom-label",
+  selector: 'app-alert-custom-label',
   imports: [TuiButton],
-  templateUrl: "./alert-custom-label.component.html",
-  styleUrl: "./alert-custom-label.component.scss",
+  templateUrl: './alert-custom-label.component.html',
+  styleUrl: './alert-custom-label.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlertCustomLabelComponent {
@@ -56,10 +56,10 @@ export class AlertCustomLabelComponent {
   private readonly notification = this.alerts
     .open(new PolymorpheusComponent(AlertExampleWithCustomLabel), {
       label: ({ appearance }) =>
-        appearance === "negative"
-          ? "Error label from function"
-          : "Info label from function",
-      appearance: "negative",
+        appearance === 'negative'
+          ? 'Error label from function'
+          : 'Info label from function',
+      appearance: 'negative',
       autoClose: 0,
     })
     .pipe(takeUntil(this.router.events));
@@ -67,7 +67,7 @@ export class AlertCustomLabelComponent {
   private readonly notificationWithCustomLabel = this.alerts
     .open(new PolymorpheusComponent(AlertExampleWithCustomLabel), {
       label: new PolymorpheusComponent(CustomLabel),
-      appearance: "warning",
+      appearance: 'warning',
       autoClose: 0,
     })
     .pipe(takeUntil(this.router.events));

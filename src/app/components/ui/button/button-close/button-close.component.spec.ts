@@ -8,9 +8,8 @@ describe('ButtonCloseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonCloseComponent]
-    })
-    .compileComponents();
+      imports: [ButtonCloseComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ButtonCloseComponent);
     component = fixture.componentInstance;

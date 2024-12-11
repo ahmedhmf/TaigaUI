@@ -8,9 +8,8 @@ describe('BadgeCustomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BadgeCustomComponent]
-    })
-    .compileComponents();
+      imports: [BadgeCustomComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BadgeCustomComponent);
     component = fixture.componentInstance;

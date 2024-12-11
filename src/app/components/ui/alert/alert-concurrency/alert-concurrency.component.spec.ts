@@ -8,9 +8,8 @@ describe('AlertConcurrencyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlertConcurrencyComponent]
-    })
-    .compileComponents();
+      imports: [AlertConcurrencyComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AlertConcurrencyComponent);
     component = fixture.componentInstance;

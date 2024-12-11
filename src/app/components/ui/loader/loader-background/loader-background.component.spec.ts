@@ -8,9 +8,8 @@ describe('LoaderBackgroundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoaderBackgroundComponent]
-    })
-    .compileComponents();
+      imports: [LoaderBackgroundComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LoaderBackgroundComponent);
     component = fixture.componentInstance;
