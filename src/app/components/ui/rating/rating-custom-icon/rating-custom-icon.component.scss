@@ -1,0 +1,23 @@
+.rating,
+.button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rating {
+  &[data-value='1'] {
+    color: var(--tui-status-negative);
+  }
+
+  &[data-value='2'] {
+    color: var(--tui-status-warning);
+  }
+
+  &[data-value='3'] {
+    color: var(--tui-status-positive);
+  }
+
+  &:hover {
+    color: var(--tui-status-info);
+  }
+}
