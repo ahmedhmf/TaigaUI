@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiPlatform } from '@taiga-ui/cdk';
@@ -7,13 +6,7 @@ import { TuiSwitch } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-switch',
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TuiPlatform,
-    TuiSwitch,
-  ],
+  imports: [FormsModule, ReactiveFormsModule, TuiPlatform, TuiSwitch],
   templateUrl: './switch.component.html',
   styleUrl: './switch.component.scss',
 })

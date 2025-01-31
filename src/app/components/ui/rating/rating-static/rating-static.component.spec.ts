@@ -8,9 +8,8 @@ describe('RatingStaticComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RatingStaticComponent]
-    })
-    .compileComponents();
+      imports: [RatingStaticComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RatingStaticComponent);
     component = fixture.componentInstance;

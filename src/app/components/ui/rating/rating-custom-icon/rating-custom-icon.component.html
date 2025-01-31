@@ -7,8 +7,9 @@
     [max]="3"
     [(ngModel)]="value"
   />
-  <button
-    *ngIf="value"
+  @if (value) {
+<button
+   
     appearance="icon"
     iconStart="@tui.x"
     size="s"
@@ -19,4 +20,5 @@
   >
     Clear
   </button>
+}
 </label>

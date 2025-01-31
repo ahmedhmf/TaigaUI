@@ -8,9 +8,8 @@ describe('SwitchSameColorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SwitchSameColorComponent]
-    })
-    .compileComponents();
+      imports: [SwitchSameColorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SwitchSameColorComponent);
     component = fixture.componentInstance;
