@@ -5,7 +5,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "demo": {      
+    "demo": {
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -65,6 +65,7 @@
       "root": "",
       "schematics": {
         "@schematics/angular:component": {
+          "changeDetection": "OnPush",
           "style": "scss"
         }
       },
