@@ -1,4 +1,4 @@
-@import '@taiga-ui/core/styles/taiga-ui-local.less';
+@import '@taiga-ui/core/styles/taiga-ui-local.scss';
 
 .wrapper {
   display: flex;
@@ -15,7 +15,7 @@
 }
 
 .header {
-  .transition(background);
+  @include transition(background);
 
   block-size: 10rem;
   flex: 1;

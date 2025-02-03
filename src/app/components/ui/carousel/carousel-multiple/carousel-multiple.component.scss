@@ -1,12 +1,11 @@
-@import '@taiga-ui/core/styles/taiga-ui-local.less';
+@import '@taiga-ui/core/styles/taiga-ui-local.scss';
 
 :host {
   display: block;
   width: 100%;
 
   .item {
-    .transition(~'box-shadow, transform');
-
+    @include transition();
     display: block;
     max-block-size: 6.25rem;
     margin: 2rem auto;

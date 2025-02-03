@@ -14,7 +14,7 @@ import { TuiCarousel, TuiPagination } from '@taiga-ui/kit';
     TuiPagination,
   ],
   templateUrl: './carousel-inside-dialog.component.html',
-  styleUrl: './carousel-inside-dialog.component.less',
+  styleUrl: './carousel-inside-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselInsideDialogComponent {

@@ -5,7 +5,7 @@ import { TuiCarousel } from '@taiga-ui/kit';
   selector: 'app-carousel-multiple',
   imports: [TuiCarousel],
   templateUrl: './carousel-multiple.component.html',
-  styleUrl: './carousel-multiple.component.less',
+  styleUrl: './carousel-multiple.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselMultipleComponent {

@@ -24,7 +24,6 @@
     "@taiga-ui/layout": "^4.22.0",
     "@taiga-ui/legacy": "^4.22.0",
     "@taiga-ui/styles": "^4.22.0",
-    "less": "^4.2.2",
     "rxjs": "^7.8.1",
     "taiga-ui": "^4.22.0",
     "tslib": "^2.5.0",
