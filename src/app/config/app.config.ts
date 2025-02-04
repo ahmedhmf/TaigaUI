@@ -13,6 +13,8 @@ import { notificationComponents } from './notification-components.config';
 import { tilesComponents } from './tiles-components.config';
 import { ratingComponents } from './rating-components.config';
 import { switchComponents } from './switch-components.config';
+import { carouselComponents } from './carousel-components.config';
+import { paginationComponents } from './pagination-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -38,6 +40,8 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   tilesComponents,
   ratingComponents,
   switchComponents,
+  carouselComponents,
+  paginationComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

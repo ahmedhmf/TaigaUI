@@ -1,0 +1,27 @@
+<tui-carousel
+[duration]="duration"
+[(index)]="index"
+>
+@for (item of items; track $index) {
+    <div
+        *tuiItem
+        class="item"
+    >
+        <h2 class="title">{{ item }}</h2>
+        
+        <a
+            href="https://en.wikipedia.org/wiki/{{ item }}"
+            tuiButton
+        >
+            Wiki
+        </a>
+    </div>
+}
+</tui-carousel>
+
+<tui-pagination
+size="s"
+class="pagination"
+[length]="items.length"
+[(index)]="index"
+/>

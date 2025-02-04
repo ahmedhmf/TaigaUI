@@ -1,0 +1,18 @@
+:host {
+    display: block;
+    width: 100%;
+}
+ 
+.pagination {
+    margin: 1rem auto 0;
+}
+ 
+.item {
+    padding: 1rem;
+    border: 1px solid var(--tui-border-normal);
+    border-radius: 1rem;
+}
+ 
+.title {
+    margin: 0 0 1rem;
+}
