@@ -1,0 +1,12 @@
+<tui-carousel [draggable]="true" [itemsCount]="3" [(index)]="index">
+  @for (item of items; track $index; let idx = $index) {
+    <img
+      *tuiItem
+      alt=""
+      draggable="false"
+      src="assets/images/{{ item }}"
+      class="item"
+      [class.item_active]="idx === index + 1"
+    />
+  }
+</tui-carousel>

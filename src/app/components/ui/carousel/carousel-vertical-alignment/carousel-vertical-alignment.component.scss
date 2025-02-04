@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  width: 100%;
+
+  .item {
+    padding: 1rem;
+    border: 1px solid var(--tui-border-normal);
+    border-radius: 1rem;
+    margin-bottom: auto;
+  }
+
+  .title {
+    margin: 0 0 1rem;
+  }
+}
