@@ -1,10 +1,9 @@
-import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TuiTiles } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-tiles-vertical',
-  imports: [NgForOf, TuiTiles],
+  imports: [TuiTiles],
   templateUrl: './tiles-vertical.component.html',
   styleUrl: './tiles-vertical.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -8,9 +8,8 @@ describe('RatingCustomIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RatingCustomIconComponent]
-    })
-    .compileComponents();
+      imports: [RatingCustomIconComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RatingCustomIconComponent);
     component = fixture.componentInstance;

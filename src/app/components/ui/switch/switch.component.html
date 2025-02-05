@@ -1,0 +1,31 @@
+@for (platform of platforms; track platform; let first = $first) {
+  <div
+    class="wrapper"
+    [class.wrapper_web]="platform === 'web'"
+    [tuiPlatform]="platform"
+  >
+    <input
+      tuiSwitch
+      type="checkbox"
+      [ngModel]="true"
+      [showIcons]="first"
+      [size]="getSize(first)"
+    />
+
+    <input
+      tuiSwitch
+      type="checkbox"
+      [disabled]="true"
+      [ngModel]="true"
+      [showIcons]="first"
+      [size]="getSize(first)"
+    />
+
+    <input
+      tuiSwitch
+      type="checkbox"
+      [showIcons]="first"
+      [size]="getSize(first)"
+    />
+  </div>
+}

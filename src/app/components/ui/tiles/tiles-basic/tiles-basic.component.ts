@@ -1,4 +1,3 @@
-import { NgForOf, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TuiIcon } from '@taiga-ui/core';
 import { TuiTiles } from '@taiga-ui/kit';
@@ -6,7 +5,7 @@ import { TuiTiles } from '@taiga-ui/kit';
 @Component({
   selector: 'app-tiles-basic',
   standalone: true,
-  imports: [NgForOf, TuiIcon, TuiTiles, NgIf],
+  imports: [TuiIcon, TuiTiles],
   templateUrl: './tiles-basic.component.html',
   styleUrl: './tiles-basic.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

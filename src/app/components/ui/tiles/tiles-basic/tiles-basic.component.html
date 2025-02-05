@@ -1,14 +1,16 @@
 <tui-tiles class="tiles" [debounce]="500" [(order)]="order">
-  <tui-tile
-    *ngFor="let item of items; let index = index"
+  @for (item of items; track item; let index = $index) {
+<tui-tile
+   
     class="tile"
     [height]="item.h"
     [style.order]="order.get(index)"
     [width]="item.w"
   >
     <div class="content" [class.rick]="item.content === 'rick'">
-      <iframe
-        *ngIf="item.content === 'rick'; else default"
+      @if (item.content === 'rick') {
+<iframe
+       
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
         frameborder="0"
@@ -16,12 +18,16 @@
         title="YouTube video player"
         class="rick"
       ></iframe>
-      <tui-icon icon="@tui.grip-vertical" tuiTileHandle class="handle" />
-      <tui-icon icon="@tui.grip-vertical" tuiTileHandle class="handle" />
-      <ng-template #default>
+} @else {
+
         <h2 class="title">{{ item.content }}</h2>
         Order - {{ order.get(index) ?? index }}
-      </ng-template>
+      
+}
+      <tui-icon icon="@tui.grip-vertical" tuiTileHandle class="handle" />
+      <tui-icon icon="@tui.grip-vertical" tuiTileHandle class="handle" />
+      
     </div>
   </tui-tile>
+}
 </tui-tiles>

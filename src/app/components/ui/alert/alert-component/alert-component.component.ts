@@ -1,4 +1,3 @@
-import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import type { TuiPopover } from '@taiga-ui/cdk';
@@ -10,20 +9,21 @@ import { switchMap, takeUntil } from 'rxjs';
 @Component({
   standalone: true,
   exportAs: 'Example3',
-  imports: [NgForOf, TuiButton],
+  imports: [TuiButton],
   template: `
     <p>Yes?</p>
-    <button
-      *ngFor="let response of [true, false]"
-      appearance="outline-grayscale"
-      size="s"
-      tuiButton
-      type="button"
-      class="tui-space_right-1"
-      (click)="context.completeWith(response)"
-    >
-      {{ response ? 'Yes' : 'No' }}
-    </button>
+    @for (response of [true, false]; track response) {
+      <button
+        appearance="outline-grayscale"
+        size="s"
+        tuiButton
+        type="button"
+        class="tui-space_right-1"
+        (click)="context.completeWith(response)"
+      >
+        {{ response ? 'Yes' : 'No' }}
+      </button>
+    }
   `,
   styles: [
     `
