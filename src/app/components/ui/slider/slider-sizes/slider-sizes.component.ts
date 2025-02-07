@@ -6,7 +6,6 @@ import { TuiSliderComponent } from '@taiga-ui/kit';
   selector: 'app-slider-sizes',
   imports: [FormsModule, ReactiveFormsModule, TuiSliderComponent],
   templateUrl: './slider-sizes.component.html',
-  styleUrl: './slider-sizes.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SliderSizesComponent {
