@@ -1,0 +1,19 @@
+<input
+  tuiSlider
+  type="range"
+  [formControl]="formControl"
+  [keySteps]="keySteps"
+  [max]="10 * segments"
+  [segments]="segments"
+/>
+
+<div class="ticks-labels">
+  @for (label of labels; track $index) {
+    <span>{{ label }}</span>
+  }
+</div>
+
+<p automation-id="key-steps-example-control-value">
+  Control value:
+  <code>{{ formControl.value | number }}</code>
+</p>
