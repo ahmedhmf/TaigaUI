@@ -1,4 +1,4 @@
-@for (platform of platforms; track platform; let first = $first) {
+@for (platform of platforms; track $index; let first = $first) {
   <div
     class="wrapper"
     [class.wrapper_web]="platform === 'web'"

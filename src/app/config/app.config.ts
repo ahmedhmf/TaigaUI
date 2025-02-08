@@ -16,6 +16,7 @@ import { switchComponents } from './switch-components.config';
 import { carouselComponents } from './carousel-components.config';
 import { paginationComponents } from './pagination-components.config';
 import { tabsComponents } from './tabs-component.config';
+import { sliderComponents } from './slider-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -44,6 +45,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   carouselComponents,
   paginationComponents,
   tabsComponents,
+  sliderComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

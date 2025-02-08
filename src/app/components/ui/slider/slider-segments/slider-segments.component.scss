@@ -1,0 +1,11 @@
+@import '@taiga-ui/core/styles/taiga-ui-local';
+
+.ticks-labels {
+  @include tui-slider-ticks-labels(m);
+}
+
+.tick-label {
+  @include button-clear();
+  outline: 0;
+  cursor: pointer;
+}
