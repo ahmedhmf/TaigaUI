@@ -1,0 +1,55 @@
+<div class="container">
+  <section class="content-container">
+    <nav tuiTabs vertical="left" class="left">
+      <button tuiTab type="button">Item 1</button>
+      <button tuiTab type="button">Item 2</button>
+      <button tuiTab type="button">
+        Item 3 with name so long it spans multiple lines
+      </button>
+    </nav>
+    <div class="content">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+        ultricies enim, vel molestie orci. In finibus diam ac nulla accumsan,
+        vel condimentum lorem ultricies. In feugiat mauris sem, ac ultricies
+        metus aliquet nec. Ut a iaculis metus, id vestibulum justo.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-container">
+    <div class="content">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+        ultricies enim, vel molestie orci. In finibus diam ac nulla accumsan,
+        vel condimentum lorem ultricies.
+      </p>
+    </div>
+    <tui-tabs size="m" vertical="right" class="right">
+      <a
+        routerLinkActive
+        tuiTab
+        [href]="'https://taiga-ui.dev/components/button'"
+        target="_blank"
+      >
+        Button
+      </a>
+      <a
+        routerLinkActive
+        tuiTab
+        [href]="'https://taiga-ui.dev/navigation/tabs'"
+        target="_blank"
+      >
+        Tabs
+      </a>
+      <a
+        routerLinkActive
+        tuiTab
+        [href]="'https://taiga-ui.dev/components/input'"
+        target="_blank"
+      >
+        Input
+      </a>
+    </tui-tabs>
+  </section>
+</div>
