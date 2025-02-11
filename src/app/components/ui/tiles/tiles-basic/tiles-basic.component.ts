@@ -4,7 +4,6 @@ import { TuiTiles } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-tiles-basic',
-  standalone: true,
   imports: [TuiIcon, TuiTiles],
   templateUrl: './tiles-basic.component.html',
   styleUrl: './tiles-basic.component.scss',

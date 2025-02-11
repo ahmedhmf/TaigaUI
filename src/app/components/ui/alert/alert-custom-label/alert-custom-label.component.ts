@@ -12,8 +12,6 @@ import {
 import { takeUntil } from 'rxjs';
 
 @Component({
-  standalone: true,
-  exportAs: 'Example5',
   imports: [TuiIcon],
   template: `
     <label style="display: flex; align-items: center">
@@ -26,7 +24,6 @@ import { takeUntil } from 'rxjs';
 class CustomLabel {}
 
 @Component({
-  standalone: true,
   imports: [PolymorpheusOutlet],
   template: `
     <h4>Start content</h4>

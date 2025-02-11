@@ -1,0 +1,12 @@
+<p>
+  <button size="m" tuiButton type="button" (click)="load$.next()">
+    Reload
+  </button>
+</p>
+<nav tuiTabBar>
+  @for (item of items$ | async; track $index) {
+    <button tuiTabBarItem type="button" [icon]="item.icon">
+      {{ item.text }}
+    </button>
+  }
+</nav>

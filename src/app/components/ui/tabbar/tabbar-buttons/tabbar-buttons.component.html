@@ -1,0 +1,13 @@
+<nav tuiTabBar class="tabs" [(activeItemIndex)]="activeItemIndex">
+  @for (item of items; track $index) {
+    <button
+      tuiTabBarItem
+      type="button"
+      [badge]="item.badge"
+      [icon]="item.icon"
+      (click)="onClick(item)"
+    >
+      {{ item.text }}
+    </button>
+  }
+</nav>
