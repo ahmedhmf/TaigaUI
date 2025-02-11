@@ -8,8 +8,6 @@ import { injectContext, PolymorpheusComponent } from '@taiga-ui/polymorpheus';
 import { switchMap, takeUntil } from 'rxjs';
 
 @Component({
-  standalone: true,
-  exportAs: 'Example4',
   imports: [CurrencyPipe, TuiButton, TuiLink],
   template: `
     <span tuiSubtitle>
@@ -40,7 +38,6 @@ export class AlertExampleWithData {
 
 @Component({
   selector: 'app-alert-component-data',
-  standalone: true,
   imports: [TuiButton],
   templateUrl: './alert-component-data.component.html',
   styleUrl: './alert-component-data.component.scss',

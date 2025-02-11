@@ -3,6 +3,7 @@ import { alertComponents } from './alert-components.config';
 import { badgeComponents } from './badge-components.config';
 import { blockComponents } from './block-components.config';
 import { buttonComponents } from './button-components.config';
+import { carouselComponents } from './carousel-components.config';
 import { chipComponents } from './chip-components.config';
 import { errorComponents } from './error-components.config';
 import { hintComponents } from './hint-components.config';
@@ -10,13 +11,13 @@ import { iconComponents } from './icon-components.config';
 import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
 import { notificationComponents } from './notification-components.config';
-import { tilesComponents } from './tiles-components.config';
-import { ratingComponents } from './rating-components.config';
-import { switchComponents } from './switch-components.config';
-import { carouselComponents } from './carousel-components.config';
 import { paginationComponents } from './pagination-components.config';
 import { tabsComponents } from './tabs-component.config';
+import { ratingComponents } from './rating-components.config';
 import { sliderComponents } from './slider-components.config';
+import { switchComponents } from './switch-components.config';
+import { tabbarComponents } from './tabbar-components.config';
+import { tilesComponents } from './tiles-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -45,6 +46,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   carouselComponents,
   paginationComponents,
   tabsComponents,
+  tabbarComponents,
   sliderComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
