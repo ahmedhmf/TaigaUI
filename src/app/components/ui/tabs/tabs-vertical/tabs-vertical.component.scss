@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  height: 100%;
+
+  .container {
+    display: flex;
+    height: 100%;
+
+    .content-container {
+      display: flex;
+
+      .content {
+        overflow: auto;
+      }
+    }
+
+    .left {
+      margin-right: 2rem;
+      min-inline-size: 10rem;
+      inline-size: 10rem;
+    }
+
+    .right {
+      margin-left: 2rem;
+      min-inline-size: 10rem;
+      inline-size: 10rem;
+    }
+  }
+}

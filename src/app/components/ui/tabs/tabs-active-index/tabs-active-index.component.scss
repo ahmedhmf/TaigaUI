@@ -1,0 +1,25 @@
+@import '@taiga-ui/core/styles/taiga-ui-local';
+
+:host {
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  .horizontal {
+    inline-size: 20rem;
+  }
+
+  .vertical {
+    block-size: 5.5rem;
+  }
+
+  .vertical,
+  .horizontal {
+    position: relative;
+    scroll-behavior: var(--tui-scroll-behavior);
+    background: var(--tui-background-base);
+    color: var(--tui-text-primary);
+    box-shadow: 0 0.125rem 0.1875rem rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--tui-border-normal);
+  }
+}

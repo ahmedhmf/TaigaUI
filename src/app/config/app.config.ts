@@ -12,6 +12,7 @@ import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
 import { notificationComponents } from './notification-components.config';
 import { paginationComponents } from './pagination-components.config';
+import { tabsComponents } from './tabs-component.config';
 import { ratingComponents } from './rating-components.config';
 import { sliderComponents } from './slider-components.config';
 import { switchComponents } from './switch-components.config';
@@ -44,6 +45,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   switchComponents,
   carouselComponents,
   paginationComponents,
+  tabsComponents,
   tabbarComponents,
   sliderComponents,
 ]
