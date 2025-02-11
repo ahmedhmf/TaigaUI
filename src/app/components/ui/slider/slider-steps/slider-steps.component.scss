@@ -1,0 +1,10 @@
+@import '@taiga-ui/core/styles/taiga-ui-local';
+
+:host {
+  display: block;
+  inline-size: 27rem;
+}
+
+.ticks-labels {
+  @include tui-slider-ticks-labels(m);
+}
