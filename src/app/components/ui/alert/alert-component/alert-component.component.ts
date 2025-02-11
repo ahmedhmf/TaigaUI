@@ -7,8 +7,6 @@ import { injectContext, PolymorpheusComponent } from '@taiga-ui/polymorpheus';
 import { switchMap, takeUntil } from 'rxjs';
 
 @Component({
-  standalone: true,
-  exportAs: 'Example3',
   imports: [TuiButton],
   template: `
     <p>Yes?</p>

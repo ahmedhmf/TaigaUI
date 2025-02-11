@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TuiTabBar } from '@taiga-ui/addon-mobile';
-import { TuiAlertService, TuiButton } from '@taiga-ui/core';
+import { TuiAlertService } from '@taiga-ui/core';
 
 interface Item {
   badge?: number;
@@ -9,7 +9,7 @@ interface Item {
 }
 @Component({
   selector: 'app-tabbar-buttons',
-  imports: [TuiTabBar, TuiButton],
+  imports: [TuiTabBar],
   templateUrl: './tabbar-buttons.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
