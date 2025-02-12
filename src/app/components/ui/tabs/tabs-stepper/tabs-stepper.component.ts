@@ -20,7 +20,6 @@ import { TuiInputNumber, TuiTabs } from '@taiga-ui/kit';
   ],
   templateUrl: './tabs-stepper.component.html',
   styleUrl: './tabs-stepper.component.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsStepperComponent {

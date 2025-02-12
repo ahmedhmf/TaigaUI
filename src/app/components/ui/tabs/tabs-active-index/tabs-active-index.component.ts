@@ -15,7 +15,6 @@ import { TuiInputNumber, TuiTabs } from '@taiga-ui/kit';
   ],
   templateUrl: './tabs-active-index.component.html',
   styleUrl: './tabs-active-index.component.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsActiveIndexComponent {

@@ -6,7 +6,6 @@ import { TuiTabs } from '@taiga-ui/kit';
   imports: [TuiTabs],
   templateUrl: './tabs-vertical.component.html',
   styleUrl: './tabs-vertical.component.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsVerticalComponent {}
