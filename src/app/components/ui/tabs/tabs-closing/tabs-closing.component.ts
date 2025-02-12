@@ -21,7 +21,6 @@ import { TuiInputNumber, TuiTabs } from '@taiga-ui/kit';
   ],
   templateUrl: './tabs-closing.component.html',
   styleUrl: './tabs-closing.component.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsClosingComponent {

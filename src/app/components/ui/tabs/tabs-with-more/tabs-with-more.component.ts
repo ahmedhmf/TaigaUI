@@ -7,7 +7,6 @@ import { TuiInputNumber, TuiTabs } from '@taiga-ui/kit';
   selector: 'app-tabs-with-more',
   imports: [FormsModule, TuiInputNumber, TuiTabs, TuiTextfield],
   templateUrl: './tabs-with-more.component.html',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsWithMoreComponent {

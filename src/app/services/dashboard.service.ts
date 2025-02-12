@@ -1,20 +1,6 @@
-import {
-  computed,
-  inject,
-  Injectable,
-  InjectionToken,
-  signal,
-} from '@angular/core';
-import { AppConfig, ComponentStructure } from '../config/app.config';
+import { computed, Injectable, signal } from '@angular/core';
 import { ComboBox } from '../components/ui/taiga/combo-box/combo-box.interface';
-
-export const COMPONENT_TYPE_FILTER_CONFIG = new InjectionToken(
-  'component_type_filter_config',
-  {
-    providedIn: 'root',
-    factory: () => AppConfig.componentTypeFilter,
-  }
-);
+import { AppConfig, ComponentStructure } from '../config/app.config';
 
 export type SearchFilter = {
   id: number;
@@ -25,8 +11,9 @@ export type SearchFilter = {
   providedIn: 'root',
 })
 export class DashboardService {
-  readonly #componentTypeFilterConfig = inject(COMPONENT_TYPE_FILTER_CONFIG);
+  readonly #componentTypeFilterConfig = AppConfig.componentTypeFilter;
   readonly #components = AppConfig.components;
+
   #search = signal<SearchFilter>({
     id: -1,
     query: null,
@@ -52,7 +39,7 @@ export class DashboardService {
     return this.#componentTypeFilterConfig;
   }
 
-  onSearchChange(data: SearchFilter) {
+  onSearchChange(data: SearchFilter): void {
     const { id, query } = data;
 
     this.#search.set({
