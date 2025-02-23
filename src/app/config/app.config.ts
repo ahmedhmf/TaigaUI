@@ -18,6 +18,7 @@ import { sliderComponents } from './slider-components.config';
 import { switchComponents } from './switch-components.config';
 import { tabbarComponents } from './tabbar-components.config';
 import { tilesComponents } from './tiles-components.config';
+import { checkboxComponents } from './checkbox-components';
 
 export type ComponentStructure = {
   id: number;
@@ -48,6 +49,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   tabsComponents,
   tabbarComponents,
   sliderComponents,
+  checkboxComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
