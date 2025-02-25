@@ -11,40 +11,39 @@ export type SearchFilter = {
   providedIn: 'root',
 })
 export class DashboardService {
-  readonly #componentTypeFilterConfig = AppConfig.componentTypeFilter;
-  readonly #components = AppConfig.components;
+  private readonly componentTypeFilterConfig = AppConfig.componentTypeFilter;
+  private readonly components = AppConfig.components;
 
-  #search = signal<SearchFilter>({
+  private search = signal<SearchFilter>({
     id: -1,
     query: null,
   });
 
-  state = computed((): ComponentStructure[] => {
-    const selectedId = this.#search().id;
-    const query = this.#search().query?.toLocaleLowerCase();
-    if (query) {
-      return this.#components.filter(
-        (c) =>
-          c.label.toLocaleLowerCase().includes(query) ||
-          c.title.toLocaleLowerCase().includes(query)
+  componentItems = computed((): ComponentStructure[] => {
+    const { id: selectedId, query } = this.search();
+    const lowerCaseQuery = query?.toLocaleLowerCase();
+
+    if (lowerCaseQuery && lowerCaseQuery.length > 3) {
+      return this.components.filter(
+        ({ label, title }) =>
+          label.toLocaleLowerCase().includes(lowerCaseQuery) ||
+          title.toLocaleLowerCase().includes(lowerCaseQuery)
       );
     } else {
       return selectedId === -1
-        ? this.#components
-        : this.#components.filter((c) => c.id === selectedId);
+        ? this.components
+        : this.components.filter(({ id }) => id === selectedId);
     }
   });
 
   getToolbarFilterByComponentTypeConfig(): ComboBox {
-    return this.#componentTypeFilterConfig;
+    return this.componentTypeFilterConfig;
   }
 
   onSearchChange(data: SearchFilter): void {
-    const { id, query } = data;
-
-    this.#search.set({
-      id: id ?? -1,
-      query,
-    });
+    this.search.update(() => ({
+      id: data.id ?? -1,
+      query: data.query ?? null,
+    }));
   }
 }

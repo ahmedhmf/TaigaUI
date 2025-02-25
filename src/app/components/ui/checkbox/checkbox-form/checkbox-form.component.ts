@@ -1,4 +1,3 @@
-import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   FormControl,
@@ -11,7 +10,7 @@ import { TuiCheckbox } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-checkbox-form',
-  imports: [FormsModule, NgForOf, ReactiveFormsModule, TuiButton, TuiCheckbox],
+  imports: [FormsModule, ReactiveFormsModule, TuiButton, TuiCheckbox],
   templateUrl: './checkbox-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

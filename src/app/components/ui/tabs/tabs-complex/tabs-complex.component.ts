@@ -1,4 +1,3 @@
-import { NgForOf, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { tuiIsString } from '@taiga-ui/cdk';
 import { TuiDataList, TuiDropdown, TuiIcon } from '@taiga-ui/core';

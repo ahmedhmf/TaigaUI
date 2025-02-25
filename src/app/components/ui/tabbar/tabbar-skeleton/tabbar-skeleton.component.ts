@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TuiTabBar } from '@taiga-ui/addon-mobile';
 import { TuiButton } from '@taiga-ui/core';
