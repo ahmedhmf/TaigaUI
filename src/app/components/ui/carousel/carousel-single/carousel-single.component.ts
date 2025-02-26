@@ -1,4 +1,4 @@
-import { isPlatformBrowser, NgFor } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, PLATFORM_ID } from '@angular/core';
 import { TuiButton } from '@taiga-ui/core';
 import { TuiCarousel, TuiPagination } from '@taiga-ui/kit';

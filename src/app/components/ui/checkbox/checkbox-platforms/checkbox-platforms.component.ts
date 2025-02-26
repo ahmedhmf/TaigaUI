@@ -1,4 +1,3 @@
-import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiPlatform } from '@taiga-ui/cdk';
@@ -7,14 +6,7 @@ import { TuiCheckbox } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-checkbox-platforms',
-  imports: [
-    FormsModule,
-    NgForOf,
-    ReactiveFormsModule,
-    TuiCheckbox,
-    TuiPlatform,
-  ],
-
+  imports: [FormsModule, ReactiveFormsModule, TuiCheckbox, TuiPlatform],
   templateUrl: './checkbox-platforms.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

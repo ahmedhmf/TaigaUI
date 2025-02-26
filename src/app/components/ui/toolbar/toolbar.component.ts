@@ -4,15 +4,16 @@ import {
   Component,
   inject,
   output,
-  ViewEncapsulation,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {
   DashboardService,
   SearchFilter,
 } from '../../../services/dashboard.service';
 import { ComboBoxComponent } from '../taiga/combo-box/combo-box.component';
 import { SearchComponent } from '../taiga/search/search.component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 export interface SearchForm {
   componentId: FormControl<number>;
@@ -42,24 +43,34 @@ export class ToolbarComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.searchForm
       .get('componentId')
-      ?.valueChanges.subscribe((componentId: number) => {
-        this.searchForm.get('searchInput')?.setValue('', { emitEvent: false });
-
-        this.onChange.emit({
-          id: componentId,
-          query: '',
-        });
+      ?.valueChanges.pipe(takeUntilDestroyed())
+      .subscribe((componentId: number) => {
+        this.resetSearchInput();
+        this.emitSearchChange(componentId, '');
       });
 
     this.searchForm
       .get('searchInput')
-      ?.valueChanges.subscribe((query: string) => {
-        this.searchForm.get('componentId')?.setValue(-1, { emitEvent: false });
-
-        this.onChange.emit({
-          id: -1,
-          query,
-        });
+      ?.valueChanges.pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        takeUntilDestroyed()
+      )
+      .subscribe((query: string) => {
+        this.resetComponentId();
+        this.emitSearchChange(-1, query);
       });
+  }
+
+  private resetSearchInput(): void {
+    this.searchForm.get('searchInput')?.setValue('', { emitEvent: false });
+  }
+
+  private resetComponentId(): void {
+    this.searchForm.get('componentId')?.setValue(-1, { emitEvent: false });
+  }
+
+  private emitSearchChange(id: number, query: string): void {
+    this.onChange.emit({ id, query });
   }
 }
