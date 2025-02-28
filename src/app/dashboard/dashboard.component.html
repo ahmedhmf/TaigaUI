@@ -6,6 +6,10 @@
 </header>
 <main tuiNavigationMain class="main-navigation">
   <div class="main-content-wrapper">
+    @if (loading()) {
+      <tui-loader size="m"></tui-loader>
+    }
+
     @for (item of dashboardService.componentItems(); track $index) {
       <div class="column">
         <app-element-container [title]="item.title">

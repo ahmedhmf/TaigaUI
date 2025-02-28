@@ -31,10 +31,10 @@ export class ToolbarComponent implements AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);
 
   protected readonly dashboardService = inject(DashboardService);
-  readonly #formBuilder = inject(FormBuilder);
+  private readonly formBuilder = inject(FormBuilder);
   onChange = output<SearchFilter>();
 
-  searchForm = this.#formBuilder.group<SearchForm>({
+  searchForm = this.formBuilder.group<SearchForm>({
     componentId: new FormControl(-1, {
       nonNullable: true,
     }),
