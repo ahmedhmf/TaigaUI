@@ -1,0 +1,28 @@
+<table tuiTable>
+  <thead>
+    <tr tuiThGroup>
+      <th tuiTh [resizable]="true">Name</th>
+      <th tuiTh [resizable]="true">Items</th>
+      <th tuiTh [resizable]="true">Balance</th>
+      <th tuiTh>Description</th>
+    </tr>
+  </thead>
+  <tbody tuiTbody>
+    @for (item of data; track item) {
+      <tr>
+        <td tuiTd>{{ item.name }}</td>
+        <td tuiTd>
+          <tui-input-tag [(ngModel)]="item.items">Items</tui-input-tag>
+        </td>
+        <td tuiTd>
+          <tui-input tuiTextfieldPrefix="$" [(ngModel)]="item.balance">
+            Value
+          </tui-input>
+        </td>
+        <td tuiTd [style.white-space]="'nowrap'">
+          {{ item.description }}
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

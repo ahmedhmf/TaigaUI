@@ -17,6 +17,7 @@
     "@angular/router": "^19.1.4",
     "@taiga-ui/addon-commerce": "^4.22.0",
     "@taiga-ui/addon-doc": "^4.22.0",
+    "@taiga-ui/addon-table": "^4.26.0",
     "@taiga-ui/cdk": "^4.22.0",
     "@taiga-ui/core": "^4.22.0",
     "@taiga-ui/icons": "^4.22.0",
