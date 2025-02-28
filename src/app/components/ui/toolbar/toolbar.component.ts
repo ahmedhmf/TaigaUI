@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   inject,
   output,
 } from '@angular/core';
@@ -27,6 +28,8 @@ export interface SearchForm {
   imports: [ReactiveFormsModule, ComboBoxComponent, SearchComponent],
 })
 export class ToolbarComponent implements AfterViewInit {
+  private readonly destroyRef = inject(DestroyRef);
+
   protected readonly dashboardService = inject(DashboardService);
   readonly #formBuilder = inject(FormBuilder);
   onChange = output<SearchFilter>();
@@ -43,7 +46,7 @@ export class ToolbarComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.searchForm
       .get('componentId')
-      ?.valueChanges.pipe(takeUntilDestroyed())
+      ?.valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((componentId: number) => {
         this.resetSearchInput();
         this.emitSearchChange(componentId, '');
@@ -54,7 +57,7 @@ export class ToolbarComponent implements AfterViewInit {
       ?.valueChanges.pipe(
         debounceTime(300),
         distinctUntilChanged(),
-        takeUntilDestroyed()
+        takeUntilDestroyed(this.destroyRef)
       )
       .subscribe((query: string) => {
         this.resetComponentId();
