@@ -1,5 +1,9 @@
 // @import '@taiga-ui/core/styles/taiga-ui-local.less';
 
+:host {
+  width: 12rem; //fix
+}
+
 .avatar {
   margin: 0 0.5rem 0 0;
   flex-shrink: 0;

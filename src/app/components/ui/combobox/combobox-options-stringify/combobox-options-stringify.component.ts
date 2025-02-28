@@ -16,9 +16,6 @@ interface Employee {
   readonly name: string;
 }
 
-const STRINGIFY_EMPLOYEE: TuiStringHandler<Employee> = (item: Employee) =>
-  `${item.name} (${item.dept.title})`;
-
 @Component({
   selector: 'app-combobox-options-stringify',
   imports: [
@@ -46,4 +43,10 @@ export class ComboboxOptionsStringifyComponent {
     { id: 777, name: 'Terry Jones', dept: { id: 566, title: 'Financial' } },
     { id: 999, name: 'Graham Chapman', dept: { id: 560, title: 'Staffing' } },
   ];
+
+  protected readonly stringifyEmployee: TuiStringHandler<Employee> = (
+    item: Employee
+  ): string => {
+    return `${item.name} (${item.dept.title})`;
+  };
 }

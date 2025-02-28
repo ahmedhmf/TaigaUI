@@ -22,11 +22,12 @@ import { databaseMockData } from './database-mock-data';
     TuiInitialsPipe,
     TuiLet,
     TuiLoader,
-    TuiTextfieldControllerModule
-],
+    TuiTextfieldControllerModule,
+  ],
   templateUrl: './combobox-data-list.component.html',
   styleUrl: './combobox-data-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [RequestService],
 })
 export class ComboboxDataListComponent {
   protected readonly service = inject(RequestService);
