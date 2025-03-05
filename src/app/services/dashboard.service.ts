@@ -19,6 +19,8 @@ export class DashboardService {
     query: null,
   });
 
+  loading = signal(false);
+
   componentItems = computed((): ComponentStructure[] => {
     const { id: selectedId, query } = this.search();
     const lowerCaseQuery = query?.toLocaleLowerCase();
@@ -41,9 +43,15 @@ export class DashboardService {
   }
 
   onSearchChange(data: SearchFilter): void {
-    this.search.update(() => ({
-      id: data.id ?? -1,
-      query: data.query ?? null,
-    }));
+    this.loading.set(true);
+
+    setTimeout(() => {
+      this.search.update(() => ({
+        id: data.id ?? -1,
+        query: data.query ?? null,
+      }));
+
+      this.loading.set(false);
+    }, 500);
   }
 }
