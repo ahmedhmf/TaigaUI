@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <tui-tree
+    [childrenHandler]="handler"
+    [content]="content"
+    [map]="map"
+    [tuiTreeController]="false"
+    [value]="data"
+  />
+  <div class="actions-wrapper">
+    <button
+      size="s"
+      tuiButton
+      type="button"
+      class="programmatic tui-space_right-2"
+      (click)="toggleTopmost()"
+    >
+      Toggle Topmost
+    </button>
+
+    <button
+      size="s"
+      tuiButton
+      type="button"
+      class="programmatic"
+      (click)="toggleLevel(0)"
+    >
+      Toggle Top level 1
+    </button>
+  </div>
+</div>
+
+<ng-template #content let-item>
+  {{ item.text }}
+</ng-template>

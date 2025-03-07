@@ -7,23 +7,23 @@
 <main tuiNavigationMain class="main-navigation">
   <div class="main-content-wrapper">
     @if (loading()) {
-      <tui-loader size="m"></tui-loader>
-    }
-
-    @for (item of dashboardService.componentItems(); track $index) {
-      <div class="column">
-        <app-element-container [title]="item.title">
-          <app-element-card
-            [title]="item.title"
-            [description]="item.description"
-            [url]="item.url"
-          >
-            <ng-container *ngComponentOutlet="item.component"></ng-container>
-          </app-element-card>
-        </app-element-container>
-      </div>
-    } @empty {
-      <app-no-items-found />
+      <tui-loader size="m" style="width: 100%"></tui-loader>
+    } @else {
+      @for (item of dashboardService.componentItems(); track $index) {
+        <div class="column">
+          <app-element-container [title]="item.title">
+            <app-element-card
+              [title]="item.title"
+              [description]="item.description"
+              [url]="item.url"
+            >
+              <ng-container *ngComponentOutlet="item.component"></ng-container>
+            </app-element-card>
+          </app-element-container>
+        </div>
+      } @empty {
+        <app-no-items-found />
+      }
     }
   </div>
 </main>

@@ -1,0 +1,13 @@
+<tui-tree
+  [childrenHandler]="childrenHandler"
+  [content]="content"
+  [map]="map"
+  [tuiTreeController]="false"
+  [value]="service.data$ | async"
+  (toggled)="onToggled($event)"
+/>
+
+<ng-template #content let-item>
+  <tui-loader *ngIf="item === loading; else text" class="loader" />
+  <ng-template #text>{{ item.text }}</ng-template>
+</ng-template>

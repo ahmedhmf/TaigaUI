@@ -1,0 +1,11 @@
+<tui-tree
+  *ngFor="let item of data.children"
+  [childrenHandler]="handler"
+  [content]="content"
+  [tuiTreeController]="true"
+  [value]="item"
+/>
+
+<ng-template #content let-item>
+  {{ item.text }}
+</ng-template>
