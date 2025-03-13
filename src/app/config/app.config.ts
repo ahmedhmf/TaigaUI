@@ -21,6 +21,7 @@ import { tabsComponents } from './tabs-component.config';
 import { tilesComponents } from './tiles-components.config';
 import { checkboxComponents } from './checkbox-components';
 import { comboboxComponents } from './combobox-components.config';
+import { treeComponents } from './tree-component.config';
 
 export type ComponentStructure = {
   id: number;
@@ -54,6 +55,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   groupComponents,
   checkboxComponents,
   comboboxComponents,
+  treeComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

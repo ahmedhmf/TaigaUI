@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+
+  .actions-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
