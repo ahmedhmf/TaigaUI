@@ -22,6 +22,7 @@ import { tilesComponents } from './tiles-components.config';
 import { checkboxComponents } from './checkbox-components';
 import { comboboxComponents } from './combobox-components.config';
 import { treeComponents } from './tree-component.config';
+import { rippleComponents } from './ripple-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -56,6 +57,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   checkboxComponents,
   comboboxComponents,
   treeComponents,
+  rippleComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
