@@ -6,15 +6,7 @@ import { TuiBreadcrumbs, TuiFade } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-breadcrumbs-overflow',
-  imports: [
-    RouterLink,
-    TuiBreadcrumbs,
-    TuiFade,
-    TuiHint,
-    TuiItem,
-    TuiLink,
-    TuiTitle,
-  ],
+  imports: [TuiBreadcrumbs, TuiHint, TuiItem, TuiLink, TuiTitle],
   templateUrl: './breadcrumbs-overflow.component.html',
   styleUrl: './breadcrumbs-overflow.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
