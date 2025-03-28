@@ -1,0 +1,18 @@
+@for (size of sizes; track $index) {
+  @let odd = $index % 2 !== 0;
+
+  <tui-avatar-stack
+    class="tui-space_vertical-4"
+    [direction]="odd ? 'left' : 'right'"
+  >
+    @for (name of names; track $index) {
+      <tui-avatar
+        [round]="odd"
+        [size]="size"
+        [src]="name | tuiInitials"
+        [style.background]="name | tuiAutoColor"
+      />
+    }
+    <tui-avatar [round]="odd" [size]="size"> 99+ </tui-avatar>
+  </tui-avatar-stack>
+}
