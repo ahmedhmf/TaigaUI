@@ -1,0 +1,6 @@
+@for (size of sizes; track $index) {
+  <section>
+    <tui-avatar [size]="size">{{ size | uppercase }}</tui-avatar>
+    <tui-avatar src="@tui.user" [size]="size" />
+  </section>
+}
