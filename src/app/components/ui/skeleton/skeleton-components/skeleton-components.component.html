@@ -1,0 +1,13 @@
+<label tuiLabel>
+  <input tuiSwitch type="checkbox" [(ngModel)]="skeleton" />
+  Show skeleton
+</label>
+<p>
+  <tui-avatar src="AI" [tuiSkeleton]="skeleton" />
+  <tui-avatar
+    src="https://avatars.githubusercontent.com/u/11832552"
+    [tuiSkeleton]="skeleton"
+  />
+  <tui-avatar src="❤️" [tuiSkeleton]="skeleton" />
+  <tui-avatar appearance="primary" src="$" [tuiSkeleton]="skeleton" />
+</p>

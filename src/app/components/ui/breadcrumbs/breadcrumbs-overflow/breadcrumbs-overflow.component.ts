@@ -1,20 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TuiItem } from '@taiga-ui/cdk';
 import { TuiHint, TuiLink, TuiTitle } from '@taiga-ui/core';
-import { TuiBreadcrumbs, TuiFade } from '@taiga-ui/kit';
+import { TuiBreadcrumbs } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-breadcrumbs-overflow',
-  imports: [
-    RouterLink,
-    TuiBreadcrumbs,
-    TuiFade,
-    TuiHint,
-    TuiItem,
-    TuiLink,
-    TuiTitle,
-  ],
+  imports: [TuiBreadcrumbs, TuiHint, TuiItem, TuiLink, TuiTitle],
   templateUrl: './breadcrumbs-overflow.component.html',
   styleUrl: './breadcrumbs-overflow.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

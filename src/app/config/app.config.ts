@@ -24,6 +24,7 @@ import { comboboxComponents } from './combobox-components.config';
 import { treeComponents } from './tree-component.config';
 import { rippleComponents } from './ripple-components.config';
 import { breadcrumbComponents } from './breadcrumbs-components.config';
+import { skeletonComponents } from './skeleton-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -60,6 +61,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   treeComponents,
   rippleComponents,
   breadcrumbComponents,
+  skeletonComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
