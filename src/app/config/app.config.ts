@@ -19,6 +19,7 @@ import { notificationComponents } from './notification-components.config';
 import { paginationComponents } from './pagination-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
+import { skeletonComponents } from './skeleton-components.config';
 import { sliderComponents } from './slider-components.config';
 import { switchComponents } from './switch-components.config';
 import { tabbarComponents } from './tabbar-components.config';
@@ -62,6 +63,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   rippleComponents,
   breadcrumbComponents,
   avatarComponents,
+  skeletonComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
