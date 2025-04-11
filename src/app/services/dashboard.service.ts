@@ -45,13 +45,15 @@ export class DashboardService {
     computation: (currentPage, previous) => {
       // We consider 9 items per page
       const startIndex = (currentPage - 1) * this.pageSize();
-      const endIndex = startIndex + this.pageSize();
+      const newItems = this.items().slice(
+        startIndex,
+        startIndex + this.pageSize()
+      );
 
-      if (currentPage > 1 && previous?.value) {
-        return [...previous.value, ...this.items().slice(startIndex, endIndex)];
-      }
-
-      return this.items().slice(startIndex, endIndex);
+      // Accumulate if previous exists and currentPage > 1
+      return currentPage > 1 && previous?.value
+        ? [...previous.value, ...newItems]
+        : newItems;
     },
   });
 
