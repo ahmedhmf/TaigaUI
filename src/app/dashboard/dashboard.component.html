@@ -10,20 +10,40 @@
       <tui-loader size="m" style="width: 100%"></tui-loader>
     } @else {
       @for (item of dashboardService.componentItems(); track $index) {
-        <div class="column">
-          <app-element-container [title]="item.title">
-            <app-element-card
-              [title]="item.title"
-              [description]="item.description"
-              [url]="item.url"
-            >
-              <ng-container *ngComponentOutlet="item.component"></ng-container>
-            </app-element-card>
-          </app-element-container>
-        </div>
+        <!-- We display the first 8 elements and the last element of the third row is the boundary for the intersection observer -->
+        @if ($index + 1 < dashboardService.componentItems().length) {
+          <div class="column">
+            <ng-container
+              *ngTemplateOutlet="elementContainer; context: { $implicit: item }"
+            ></ng-container>
+          </div>
+        }
+        @if ($index + 1 === dashboardService.componentItems().length) {
+          <div
+            class="column"
+            observeVisibility
+            (visible)="dashboardService.onNextPage()"
+          >
+            <ng-container
+              *ngTemplateOutlet="elementContainer; context: { $implicit: item }"
+            ></ng-container>
+          </div>
+        }
       } @empty {
         <app-no-items-found />
       }
     }
   </div>
 </main>
+
+<ng-template #elementContainer let-item>
+  <app-element-container [title]="item.title">
+    <app-element-card
+      [title]="item.title"
+      [description]="item.description"
+      [url]="item.url"
+    >
+      <ng-container *ngComponentOutlet="item.component"></ng-container>
+    </app-element-card>
+  </app-element-container>
+</ng-template>
