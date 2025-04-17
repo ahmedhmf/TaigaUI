@@ -2,22 +2,19 @@ import {
   afterNextRender,
   DestroyRef,
   Directive,
+  effect,
   ElementRef,
   inject,
   input,
   output,
+  signal,
 } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import {
-  delay,
-  EMPTY,
-  filter,
-  Observable,
-  Subject,
-  switchMap,
-  tap,
-} from 'rxjs';
 import { DashboardService } from '../services/dashboard.service';
+
+interface IntersectionEntry {
+  target: HTMLElement;
+  isIntersecting: boolean;
+}
 
 @Directive({
   selector: '[observeVisibility]',
@@ -25,15 +22,11 @@ import { DashboardService } from '../services/dashboard.service';
 export class ObserveVisibilityDirective {
   currentIndex = input<number>(0, { alias: 'observeVisibility' });
 
-  readonly debounceTime = input<number>(0);
   readonly threshold = input<number>(1);
   readonly visible = output<HTMLElement>();
 
   private observer: IntersectionObserver | undefined;
-  private subject$ = new Subject<{
-    entry: IntersectionObserverEntry;
-    observer: IntersectionObserver;
-  }>();
+  private intersectionEntry = signal<IntersectionEntry | null>(null);
 
   private element = inject(ElementRef);
   private destroyRef = inject(DestroyRef);
@@ -45,22 +38,24 @@ export class ObserveVisibilityDirective {
     afterNextRender(() => {
       this.startObservingElements();
     });
+
+    effect(() => {
+      const entry = this.intersectionEntry();
+      if (!entry) return;
+
+      if (entry.isIntersecting) {
+        this.checkVisibilityAndEmit(entry.target);
+      }
+    });
   }
 
-  private isVisible(element: HTMLElement): Observable<boolean> {
-    return new Observable<boolean>((observer) => {
-      const intersectionObserver = new IntersectionObserver(([entry]) => {
-        observer.next(entry.intersectionRatio === 1);
-        observer.complete();
-        intersectionObserver.disconnect();
-      });
-
-      intersectionObserver.observe(element);
-
-      return () => {
-        intersectionObserver.disconnect();
-      };
-    });
+  private checkVisibilityAndEmit(target: HTMLElement) {
+    if (
+      this.currentIndex() + 1 ===
+      this.dashboardService.componentItems().length
+    ) {
+      this.visible.emit(target);
+    }
   }
 
   private createObserver() {
@@ -69,25 +64,30 @@ export class ObserveVisibilityDirective {
       threshold: this.threshold(),
     };
 
-    const isIntersecting = (entry: IntersectionObserverEntry) =>
-      entry.isIntersecting || entry.intersectionRatio > 0;
+    const isFullyVisible = (entry: IntersectionObserverEntry) =>
+      entry.intersectionRatio === 1;
 
-    this.observer = new IntersectionObserver((entries, observer) => {
+    this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (isIntersecting(entry)) {
-          this.subject$.next({ entry, observer });
+        if (isFullyVisible(entry)) {
+          this.intersectionEntry.set({
+            target: entry.target as HTMLElement,
+            isIntersecting: true,
+          });
+        } else {
+          this.intersectionEntry.set({
+            target: entry.target as HTMLElement,
+            isIntersecting: false,
+          });
         }
       });
     }, options);
 
-    // Cleanup observer on destroy
     this.destroyRef.onDestroy(() => {
       if (this.observer) {
         this.observer.disconnect();
         this.observer = undefined;
       }
-
-      this.subject$.complete();
     });
   }
 
@@ -97,28 +97,5 @@ export class ObserveVisibilityDirective {
     }
 
     this.observer.observe(this.element.nativeElement);
-
-    this.subject$
-      .pipe(
-        delay(this.debounceTime()),
-        switchMap(({ entry, observer }) => {
-          const target = entry.target as HTMLElement;
-
-          return this.isVisible(target).pipe(
-            filter(Boolean),
-            tap(() => {
-              if (
-                this.currentIndex() + 1 ===
-                this.dashboardService.componentItems().length
-              ) {
-                this.visible.emit(target);
-              }
-              observer.unobserve(target);
-            })
-          );
-        }),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe();
   }
 }
