@@ -39,7 +39,9 @@ export class DashboardService {
         : this.components.filter(({ id }) => id === selectedId);
     }
   });
+
   totalPages = computed(() => Math.ceil(this.items().length / 9));
+
   componentItems = linkedSignal<number, ComponentStructure[]>({
     source: () => this.currentPage(),
     computation: (currentPage, previous) => {

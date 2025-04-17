@@ -1,59 +1,61 @@
 import {
+  afterNextRender,
+  DestroyRef,
   Directive,
-  OnInit,
-  OnDestroy,
-  AfterViewInit,
+  effect,
   ElementRef,
+  inject,
   input,
   output,
-  inject,
+  signal,
 } from '@angular/core';
-import { delay, filter, Subject } from 'rxjs';
+import { DashboardService } from '../services/dashboard.service';
+
+interface IntersectionEntry {
+  target: HTMLElement;
+  isIntersecting: boolean;
+}
 
 @Directive({
   selector: '[observeVisibility]',
 })
-export class ObserveVisibilityDirective
-  implements OnDestroy, OnInit, AfterViewInit
-{
-  readonly debounceTime = input<number>(0);
+export class ObserveVisibilityDirective {
+  currentIndex = input<number>(0, { alias: 'observeVisibility' });
+
   readonly threshold = input<number>(1);
   readonly visible = output<HTMLElement>();
 
   private observer: IntersectionObserver | undefined;
-  private subject$ = new Subject<{
-    entry: IntersectionObserverEntry;
-    observer: IntersectionObserver;
-  }>();
+  private intersectionEntry = signal<IntersectionEntry | null>(null);
 
   private element = inject(ElementRef);
+  private destroyRef = inject(DestroyRef);
+  private dashboardService = inject(DashboardService);
 
-  ngOnInit() {
+  constructor() {
     this.createObserver();
-  }
 
-  ngAfterViewInit() {
-    this.startObservingElements();
-  }
-
-  ngOnDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = undefined;
-    }
-
-    this.subject$.complete();
-  }
-
-  private isVisible(element: HTMLElement) {
-    return new Promise((resolve) => {
-      const observer = new IntersectionObserver(([entry]) => {
-        resolve(entry.intersectionRatio === 1);
-        observer.disconnect();
-      });
-
-      observer.observe(element);
+    afterNextRender(() => {
+      this.startObservingElements();
     });
+
+    effect(() => {
+      const entry = this.intersectionEntry();
+      if (!entry) return;
+
+      if (entry.isIntersecting) {
+        this.checkVisibilityAndEmit(entry.target);
+      }
+    });
+  }
+
+  private checkVisibilityAndEmit(target: HTMLElement) {
+    if (
+      this.currentIndex() + 1 ===
+      this.dashboardService.componentItems().length
+    ) {
+      this.visible.emit(target);
+    }
   }
 
   private createObserver() {
@@ -62,16 +64,31 @@ export class ObserveVisibilityDirective
       threshold: this.threshold(),
     };
 
-    const isIntersecting = (entry: IntersectionObserverEntry) =>
-      entry.isIntersecting || entry.intersectionRatio > 0;
+    const isFullyVisible = (entry: IntersectionObserverEntry) =>
+      entry.intersectionRatio === 1;
 
-    this.observer = new IntersectionObserver((entries, observer) => {
+    this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (isIntersecting(entry)) {
-          this.subject$.next({ entry, observer });
+        if (isFullyVisible(entry)) {
+          this.intersectionEntry.set({
+            target: entry.target as HTMLElement,
+            isIntersecting: true,
+          });
+        } else {
+          this.intersectionEntry.set({
+            target: entry.target as HTMLElement,
+            isIntersecting: false,
+          });
         }
       });
     }, options);
+
+    this.destroyRef.onDestroy(() => {
+      if (this.observer) {
+        this.observer.disconnect();
+        this.observer = undefined;
+      }
+    });
   }
 
   private startObservingElements() {
@@ -80,17 +97,5 @@ export class ObserveVisibilityDirective
     }
 
     this.observer.observe(this.element.nativeElement);
-
-    this.subject$
-      .pipe(delay(this.debounceTime()), filter(Boolean))
-      .subscribe(async ({ entry, observer }) => {
-        const target = entry.target as HTMLElement;
-        const isStillVisible = await this.isVisible(target);
-
-        if (isStillVisible) {
-          this.visible.emit(target);
-          observer.unobserve(target);
-        }
-      });
   }
 }
