@@ -1,23 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {
-  IsActiveMatchOptions,
-  RouterLink,
-  RouterLinkActive,
-} from '@angular/router';
-import { TuiButton, TuiIcon } from '@taiga-ui/core';
+import { IsActiveMatchOptions } from '@angular/router';
+import { TuiIcon } from '@taiga-ui/core';
 import { TuiSegmented } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-segmented-content',
-  imports: [
-    FormsModule,
-    RouterLink,
-    RouterLinkActive,
-    TuiButton,
-    TuiIcon,
-    TuiSegmented,
-  ],
+  imports: [FormsModule, TuiIcon, TuiSegmented],
   templateUrl: './segmented-content.component.html',
   styleUrl: './segmented-content.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,0 +1,10 @@
+@import '@taiga-ui/core/styles/taiga-ui-local';
+
+.fade {
+  @include scrollbar-hidden();
+
+  inline-size: 17rem;
+  block-size: 10rem;
+  font: var(--tui-font-text-l);
+  overflow: auto;
+}
