@@ -2,35 +2,38 @@ import {
   afterNextRender,
   DestroyRef,
   Directive,
-  effect,
   ElementRef,
   inject,
   input,
+  linkedSignal,
   output,
-  signal,
 } from '@angular/core';
-import { DashboardService } from '../services/dashboard.service';
-
-interface IntersectionEntry {
-  target: HTMLElement;
-  isIntersecting: boolean;
-}
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { delay, filter, Subject } from 'rxjs';
 
 @Directive({
   selector: '[observeVisibility]',
 })
 export class ObserveVisibilityDirective {
-  currentIndex = input<number>(0, { alias: 'observeVisibility' });
+  readonly totalItems = input.required<number>();
+  readonly currentIndex = input<number>(0, { alias: 'observeVisibility' });
+  readonly debounceTime = input<number>(0);
 
   readonly threshold = input<number>(1);
   readonly visible = output<HTMLElement>();
 
   private observer: IntersectionObserver | undefined;
-  private intersectionEntry = signal<IntersectionEntry | null>(null);
-
+  private subject$ = new Subject<{
+    entry: IntersectionObserverEntry;
+    observer: IntersectionObserver;
+  }>();
   private element = inject(ElementRef);
   private destroyRef = inject(DestroyRef);
-  private dashboardService = inject(DashboardService);
+
+  private readonly isBoundaryItem = linkedSignal<number, boolean>({
+    source: () => this.totalItems(),
+    computation: (totalItems) => this.currentIndex() + 1 === totalItems,
+  });
 
   constructor() {
     this.createObserver();
@@ -38,24 +41,6 @@ export class ObserveVisibilityDirective {
     afterNextRender(() => {
       this.startObservingElements();
     });
-
-    effect(() => {
-      const entry = this.intersectionEntry();
-      if (!entry) return;
-
-      if (entry.isIntersecting) {
-        this.checkVisibilityAndEmit(entry.target);
-      }
-    });
-  }
-
-  private checkVisibilityAndEmit(target: HTMLElement) {
-    if (
-      this.currentIndex() + 1 ===
-      this.dashboardService.componentItems().length
-    ) {
-      this.visible.emit(target);
-    }
   }
 
   private createObserver() {
@@ -67,18 +52,10 @@ export class ObserveVisibilityDirective {
     const isFullyVisible = (entry: IntersectionObserverEntry) =>
       entry.intersectionRatio === 1;
 
-    this.observer = new IntersectionObserver((entries) => {
+    this.observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (isFullyVisible(entry)) {
-          this.intersectionEntry.set({
-            target: entry.target as HTMLElement,
-            isIntersecting: true,
-          });
-        } else {
-          this.intersectionEntry.set({
-            target: entry.target as HTMLElement,
-            isIntersecting: false,
-          });
+          this.subject$.next({ entry, observer });
         }
       });
     }, options);
@@ -88,6 +65,8 @@ export class ObserveVisibilityDirective {
         this.observer.disconnect();
         this.observer = undefined;
       }
+
+      this.subject$.complete();
     });
   }
 
@@ -97,5 +76,33 @@ export class ObserveVisibilityDirective {
     }
 
     this.observer.observe(this.element.nativeElement);
+
+    this.subject$
+      .pipe(
+        delay(this.debounceTime()),
+        filter(Boolean),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(async ({ entry, observer }) => {
+        const target = entry.target as HTMLElement;
+        const isStillVisible = await this.isVisible(target);
+
+        if (isStillVisible && this.isBoundaryItem()) {
+          console.log('boundary item');
+          this.visible.emit(target);
+          observer.unobserve(target);
+        }
+      });
+  }
+
+  private isVisible(element: HTMLElement) {
+    return new Promise((resolve) => {
+      const observer = new IntersectionObserver(([entry]) => {
+        resolve(entry.intersectionRatio === 1);
+        observer.disconnect();
+      });
+
+      observer.observe(element);
+    });
   }
 }
