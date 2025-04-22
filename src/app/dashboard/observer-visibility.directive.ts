@@ -88,7 +88,6 @@ export class ObserveVisibilityDirective {
         const isStillVisible = await this.isVisible(target);
 
         if (isStillVisible && this.isBoundaryItem()) {
-          console.log('boundary item');
           this.visible.emit(target);
           observer.unobserve(target);
         }
