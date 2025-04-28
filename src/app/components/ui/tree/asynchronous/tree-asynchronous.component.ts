@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -42,7 +42,7 @@ class TreeLoader implements TuiTreeLoader<Item> {
 
 @Component({
   selector: 'app-tree-asynchronous',
-  imports: [AsyncPipe, NgIf, TuiLoader, TuiTree],
+  imports: [AsyncPipe, TuiLoader, TuiTree],
   templateUrl: './tree-asynchronous.component.html',
   styleUrl: './tree-asynchronous.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

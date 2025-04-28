@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import type { TemplateRef } from '@angular/core';
 import {
   ChangeDetectionStrategy,
@@ -22,7 +22,7 @@ import {
 } from 'rxjs';
 @Component({
   selector: 'app-with-loading-unavailable-image',
-  imports: [AsyncPipe, NgIf, TuiButton, TuiIcon, TuiLoader, TuiPreview],
+  imports: [AsyncPipe, TuiButton, TuiIcon, TuiLoader, TuiPreview],
   templateUrl: './with-loading-unavailable-image.component.html',
   styleUrl: './with-loading-unavailable-image.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
