@@ -1,4 +1,5 @@
 import { Type } from '@angular/core';
+import { actionbarComponents } from './actionbar-components.config';
 import { alertComponents } from './alert-components.config';
 import { avatarComponents } from './avatar-components.config';
 import { badgeComponents } from './badge-components.config';
@@ -10,6 +11,7 @@ import { checkboxComponents } from './checkbox-components';
 import { chipComponents } from './chip-components.config';
 import { comboboxComponents } from './combobox-components.config';
 import { errorComponents } from './error-components.config';
+import { fadeComponents } from './fade-components.config';
 import { groupComponents } from './group-components.config';
 import { hintComponents } from './hint-components.config';
 import { iconComponents } from './icon-components.config';
@@ -19,6 +21,7 @@ import { notificationComponents } from './notification-components.config';
 import { paginationComponents } from './pagination-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
+import { segmentedComponents } from './segmented-components.config';
 import { skeletonComponents } from './skeleton-components.config';
 import { sliderComponents } from './slider-components.config';
 import { switchComponents } from './switch-components.config';
@@ -26,8 +29,6 @@ import { tabbarComponents } from './tabbar-components.config';
 import { tabsComponents } from './tabs-component.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
-import { segmentedComponents } from './segmented-components.config';
-import { fadeComponents } from './fade-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -68,6 +69,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   skeletonComponents,
   segmentedComponents,
   fadeComponents,
+  actionbarComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
