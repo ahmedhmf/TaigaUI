@@ -19,6 +19,8 @@ import { notificationComponents } from './notification-components.config';
 import { paginationComponents } from './pagination-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
+import { segmentedComponents } from './segmented-components.config';
+import { sensitiveComponents } from './sensitive-components.config';
 import { skeletonComponents } from './skeleton-components.config';
 import { sliderComponents } from './slider-components.config';
 import { switchComponents } from './switch-components.config';
@@ -67,6 +69,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   avatarComponents,
   skeletonComponents,
   segmentedComponents,
+  sensitiveComponents,
   fadeComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
