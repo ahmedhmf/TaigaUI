@@ -1,22 +1,24 @@
 import {
+  afterNextRender,
+  DestroyRef,
   Directive,
-  OnInit,
-  OnDestroy,
-  AfterViewInit,
   ElementRef,
-  input,
-  output,
   inject,
+  input,
+  linkedSignal,
+  output,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { delay, filter, Subject } from 'rxjs';
 
 @Directive({
   selector: '[observeVisibility]',
 })
-export class ObserveVisibilityDirective
-  implements OnDestroy, OnInit, AfterViewInit
-{
+export class ObserveVisibilityDirective {
+  readonly totalItems = input.required<number>();
+  readonly currentIndex = input<number>(0, { alias: 'observeVisibility' });
   readonly debounceTime = input<number>(0);
+
   readonly threshold = input<number>(1);
   readonly visible = output<HTMLElement>();
 
@@ -25,24 +27,71 @@ export class ObserveVisibilityDirective
     entry: IntersectionObserverEntry;
     observer: IntersectionObserver;
   }>();
-
   private element = inject(ElementRef);
+  private destroyRef = inject(DestroyRef);
 
-  ngOnInit() {
+  private readonly isBoundaryItem = linkedSignal<number, boolean>({
+    source: () => this.totalItems(),
+    computation: (totalItems) => this.currentIndex() + 1 === totalItems,
+  });
+
+  constructor() {
     this.createObserver();
+
+    afterNextRender(() => {
+      this.startObservingElements();
+    });
   }
 
-  ngAfterViewInit() {
-    this.startObservingElements();
+  private createObserver() {
+    const options = {
+      rootMargin: '0px',
+      threshold: this.threshold(),
+    };
+
+    const isFullyVisible = (entry: IntersectionObserverEntry) =>
+      entry.intersectionRatio === 1;
+
+    this.observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (isFullyVisible(entry)) {
+          this.subject$.next({ entry, observer });
+        }
+      });
+    }, options);
+
+    this.destroyRef.onDestroy(() => {
+      if (this.observer) {
+        this.observer.disconnect();
+        this.observer = undefined;
+      }
+
+      this.subject$.complete();
+    });
   }
 
-  ngOnDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = undefined;
+  private startObservingElements() {
+    if (!this.observer) {
+      return;
     }
 
-    this.subject$.complete();
+    this.observer.observe(this.element.nativeElement);
+
+    this.subject$
+      .pipe(
+        delay(this.debounceTime()),
+        filter(Boolean),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(async ({ entry, observer }) => {
+        const target = entry.target as HTMLElement;
+        const isStillVisible = await this.isVisible(target);
+
+        if (isStillVisible && this.isBoundaryItem()) {
+          this.visible.emit(target);
+          observer.unobserve(target);
+        }
+      });
   }
 
   private isVisible(element: HTMLElement) {
@@ -54,43 +103,5 @@ export class ObserveVisibilityDirective
 
       observer.observe(element);
     });
-  }
-
-  private createObserver() {
-    const options = {
-      rootMargin: '0px',
-      threshold: this.threshold(),
-    };
-
-    const isIntersecting = (entry: IntersectionObserverEntry) =>
-      entry.isIntersecting || entry.intersectionRatio > 0;
-
-    this.observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (isIntersecting(entry)) {
-          this.subject$.next({ entry, observer });
-        }
-      });
-    }, options);
-  }
-
-  private startObservingElements() {
-    if (!this.observer) {
-      return;
-    }
-
-    this.observer.observe(this.element.nativeElement);
-
-    this.subject$
-      .pipe(delay(this.debounceTime()), filter(Boolean))
-      .subscribe(async ({ entry, observer }) => {
-        const target = entry.target as HTMLElement;
-        const isStillVisible = await this.isVisible(target);
-
-        if (isStillVisible) {
-          this.visible.emit(target);
-          observer.unobserve(target);
-        }
-      });
   }
 }

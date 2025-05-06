@@ -28,6 +28,8 @@ import { tabbarComponents } from './tabbar-components.config';
 import { tabsComponents } from './tabs-component.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
+import { segmentedComponents } from './segmented-components.config';
+import { fadeComponents } from './fade-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -68,6 +70,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   skeletonComponents,
   segmentedComponents,
   sensitiveComponents,
+  fadeComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
