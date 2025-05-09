@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import type { TuiHandler } from '@taiga-ui/cdk';
 import { EMPTY_ARRAY } from '@taiga-ui/cdk';
@@ -13,7 +13,7 @@ interface TreeNode {
 
 @Component({
   selector: 'app-tree-template',
-  imports: [NgIf, TuiIcon, TuiTree],
+  imports: [TuiIcon, TuiTree],
   templateUrl: './tree-template.component.html',
   styleUrl: './tree-template.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
