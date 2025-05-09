@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  inline-size: 18rem;
+}
+
+[tuiCardLarge] {
+  margin: 1.5rem 1rem;
+}
+
+button[tuiSwipeAction] {
+  border-radius: 100%;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+input[type='checkbox'] {
+  margin-right: 0.5rem;
+}
