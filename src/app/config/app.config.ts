@@ -21,6 +21,7 @@ import { paginationComponents } from './pagination-components.config';
 import { previewComponents } from './preview-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
+import { searchComponents } from './search-components.config';
 import { segmentedComponents } from './segmented-components.config';
 import { sensitiveComponents } from './sensitive-components.config';
 import { skeletonComponents } from './skeleton-components.config';
@@ -72,6 +73,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   sensitiveComponents,
   fadeComponents,
   previewComponents,
+  searchComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
