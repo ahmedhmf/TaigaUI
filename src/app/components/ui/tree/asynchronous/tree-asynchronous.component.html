@@ -8,6 +8,9 @@
 />
 
 <ng-template #content let-item>
-  <tui-loader *ngIf="item === loading; else text" class="loader" />
-  <ng-template #text>{{ item.text }}</ng-template>
+  @if (item === loading) {
+    <tui-loader class="loader" />
+  } @else {
+    {{ item.text }}
+  }
 </ng-template>

@@ -18,6 +18,7 @@ import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
 import { notificationComponents } from './notification-components.config';
 import { paginationComponents } from './pagination-components.config';
+import { previewComponents } from './preview-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
 import { segmentedComponents } from './segmented-components.config';
@@ -72,6 +73,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   sensitiveComponents,
   fadeComponents,
   swipeActionsComponents,
+  previewComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

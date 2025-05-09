@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -17,7 +17,7 @@ interface TreeNode {
 
 @Component({
   selector: 'app-tree-drag-drop',
-  imports: [NgIf, TuiTiles, TuiTree],
+  imports: [TuiTiles, TuiTree],
   templateUrl: './tree-drag-drop.component.html',
   styleUrl: './tree-drag-drop.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

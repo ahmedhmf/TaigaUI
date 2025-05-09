@@ -1,4 +1,4 @@
-import { NgForOf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import type { TuiHandler } from '@taiga-ui/cdk';
@@ -21,12 +21,11 @@ function flatten(item: TreeNode): readonly TreeNode[] {
   selector: 'app-tree-checkbox',
   imports: [
     FormsModule,
-    NgForOf,
     TuiCheckbox,
     TuiLabel,
     TuiMapperPipe,
-    TuiTree,
-  ],
+    TuiTree
+],
   templateUrl: './tree-checkbox.component.html',
   styleUrl: './tree-checkbox.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

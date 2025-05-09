@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import type { TuiHandler } from '@taiga-ui/cdk';
-import { NgForOf } from '@angular/common';
+
 import { EMPTY_ARRAY } from '@taiga-ui/cdk';
 import { TUI_TREE_CONTENT, TuiTree } from '@taiga-ui/kit';
 import { PolymorpheusComponent } from '@taiga-ui/polymorpheus';
@@ -14,7 +14,7 @@ interface TreeNode {
 
 @Component({
   selector: 'app-tree-custom',
-  imports: [NgForOf, TuiTree],
+  imports: [TuiTree],
   templateUrl: './tree-custom.component.html',
   styleUrl: './tree-custom.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
