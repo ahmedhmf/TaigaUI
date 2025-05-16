@@ -1,4 +1,5 @@
 import { Type } from '@angular/core';
+import { actionbarComponents } from './actionbar-components.config';
 import { alertComponents } from './alert-components.config';
 import { avatarComponents } from './avatar-components.config';
 import { badgeComponents } from './badge-components.config';
@@ -72,6 +73,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   segmentedComponents,
   sensitiveComponents,
   fadeComponents,
+  actionbarComponents,
   swipeActionsComponents,
   previewComponents,
 ]
