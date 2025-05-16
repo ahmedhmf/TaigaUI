@@ -25,6 +25,7 @@ import { segmentedComponents } from './segmented-components.config';
 import { sensitiveComponents } from './sensitive-components.config';
 import { skeletonComponents } from './skeleton-components.config';
 import { sliderComponents } from './slider-components.config';
+import { swipeActionsComponents } from './swipe-actions-components.config';
 import { switchComponents } from './switch-components.config';
 import { tabbarComponents } from './tabbar-components.config';
 import { tabsComponents } from './tabs-component.config';
@@ -71,6 +72,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   segmentedComponents,
   sensitiveComponents,
   fadeComponents,
+  swipeActionsComponents,
   previewComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
