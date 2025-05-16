@@ -19,12 +19,14 @@ import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
 import { notificationComponents } from './notification-components.config';
 import { paginationComponents } from './pagination-components.config';
+import { previewComponents } from './preview-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
 import { segmentedComponents } from './segmented-components.config';
 import { sensitiveComponents } from './sensitive-components.config';
 import { skeletonComponents } from './skeleton-components.config';
 import { sliderComponents } from './slider-components.config';
+import { swipeActionsComponents } from './swipe-actions-components.config';
 import { switchComponents } from './switch-components.config';
 import { tabbarComponents } from './tabbar-components.config';
 import { tabsComponents } from './tabs-component.config';
@@ -72,6 +74,8 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   sensitiveComponents,
   fadeComponents,
   actionbarComponents,
+  swipeActionsComponents,
+  previewComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
