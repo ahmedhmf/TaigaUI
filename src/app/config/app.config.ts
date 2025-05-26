@@ -20,6 +20,7 @@ import { loaderComponents } from './loader-components.config';
 import { notificationComponents } from './notification-components.config';
 import { paginationComponents } from './pagination-components.config';
 import { previewComponents } from './preview-components.config';
+import { radioComponents } from './radio-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
 import { searchComponents } from './search-components.config';
@@ -78,6 +79,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   swipeActionsComponents,
   previewComponents,
   searchComponents,
+  radioComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
