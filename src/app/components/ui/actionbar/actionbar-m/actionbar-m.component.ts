@@ -30,6 +30,7 @@ import { map } from 'rxjs';
     TuiRepeatTimes,
   ],
   templateUrl: './actionbar-m.component.html',
+  styleUrls: ['./actionbar-m.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActionbarMComponent {
