@@ -1,4 +1,5 @@
 import { Type } from '@angular/core';
+import { actionbarComponents } from './actionbar-components.config';
 import { alertComponents } from './alert-components.config';
 import { avatarComponents } from './avatar-components.config';
 import { badgeComponents } from './badge-components.config';
@@ -21,6 +22,7 @@ import { paginationComponents } from './pagination-components.config';
 import { previewComponents } from './preview-components.config';
 import { ratingComponents } from './rating-components.config';
 import { rippleComponents } from './ripple-components.config';
+import { searchComponents } from './search-components.config';
 import { segmentedComponents } from './segmented-components.config';
 import { sensitiveComponents } from './sensitive-components.config';
 import { skeletonComponents } from './skeleton-components.config';
@@ -73,9 +75,11 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   segmentedComponents,
   sensitiveComponents,
   fadeComponents,
+  actionbarComponents,
   swipeActionsComponents,
   previewComponents,
   stepperComponents,
+  searchComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
