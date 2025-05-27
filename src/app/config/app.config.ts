@@ -33,6 +33,7 @@ import { tabbarComponents } from './tabbar-components.config';
 import { tabsComponents } from './tabs-component.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
+import { stepperComponents } from './stepper-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -77,6 +78,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   actionbarComponents,
   swipeActionsComponents,
   previewComponents,
+  stepperComponents,
   searchComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
