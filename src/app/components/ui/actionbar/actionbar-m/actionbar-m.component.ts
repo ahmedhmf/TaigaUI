@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +17,6 @@ import { map } from 'rxjs';
 @Component({
   selector: 'app-actionbar-m',
   imports: [
-    NgIf,
     ReactiveFormsModule,
     TuiActionBar,
     TuiButton,
@@ -27,8 +26,8 @@ import { map } from 'rxjs';
     TuiIcon,
     TuiItemsWithMore,
     TuiLink,
-    TuiRepeatTimes,
-  ],
+    TuiRepeatTimes
+],
   templateUrl: './actionbar-m.component.html',
   styleUrls: ['./actionbar-m.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

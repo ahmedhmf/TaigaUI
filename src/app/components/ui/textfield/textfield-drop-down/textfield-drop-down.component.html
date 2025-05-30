@@ -1,0 +1,20 @@
+<tui-textfield iconEnd="@tui.search">
+  <label tuiLabel>Start typing</label>
+  <input placeholder="I am placeholder" tuiTextfield [(ngModel)]="value" />
+  <tui-icon tuiTooltip="Editable combo-box" />
+  <tui-data-list-wrapper
+    *tuiTextfieldDropdown
+    [items]="items | tuiFilterByInput"
+  />
+</tui-textfield>
+
+<tui-textfield tuiChevron>
+  <label tuiLabel>Select option</label>
+  <select
+    placeholder="I am placeholder"
+    tuiTextfield
+    [(ngModel)]="value"
+  ></select>
+  <tui-icon tuiTooltip="Fixed choice select" />
+  <tui-data-list-wrapper *tuiTextfieldDropdown [items]="items" />
+</tui-textfield>
