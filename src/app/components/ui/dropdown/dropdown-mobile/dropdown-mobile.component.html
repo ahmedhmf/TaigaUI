@@ -1,0 +1,8 @@
+<tui-combo-box
+  tuiDropdownMobile
+  [tuiTextfieldCleaner]="true"
+  [(ngModel)]="country"
+>
+  Country
+  <tui-data-list-wrapper *tuiDataList [items]="countries | tuiFilterByInput" />
+</tui-combo-box>
