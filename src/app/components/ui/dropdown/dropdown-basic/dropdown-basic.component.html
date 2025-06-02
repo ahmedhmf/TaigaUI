@@ -1,0 +1,16 @@
+<button
+  tuiButton
+  tuiChevron
+  type="button"
+  [tuiDropdown]="dropdownContent"
+  [tuiDropdownManual]="open"
+  [tuiObscuredEnabled]="open"
+  (click)="onClick()"
+  (tuiActiveZoneChange)="onActiveZone($event)"
+  (tuiObscured)="onObscured($event)"
+>
+  Choose
+  <ng-template #dropdownContent>
+    <div class="dropdown">But there is nothing to choose...</div>
+  </ng-template>
+</button>
