@@ -1,0 +1,32 @@
+<label tuiInputFiles>
+  <input tuiInputFiles [formControl]="control" />
+  <ng-template let-dragged>
+    <div *ngIf="dragged; else base" class="content">
+      <tui-avatar appearance="secondary" src="@tui.droplet" />
+      <div>
+        Drop it like it's hot!
+        <br />
+        <br />
+      </div>
+    </div>
+    <ng-template #base>
+      <div class="content">
+        <tui-avatar appearance="secondary" src="@tui.cloud-upload" />
+        <div>
+          Drag and drop file here or
+          <a tuiLink>click to upload</a>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</label>
+
+<tui-files class="tui-space_top-4">
+  <tui-file [file]="file" [leftContent]="content">
+    <span class="tui-text_body-s-2">file is on checking</span>
+  </tui-file>
+</tui-files>
+
+<ng-template #content>
+  <tui-icon icon="@tui.clock" />
+</ng-template>
