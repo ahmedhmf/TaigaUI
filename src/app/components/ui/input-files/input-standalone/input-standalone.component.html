@@ -1,0 +1,23 @@
+<tui-files>
+  <tui-file
+    *ngFor="let file of files"
+    state="normal"
+    [file]="file"
+    [showDelete]="control.enabled"
+  />
+
+  <tui-file
+    *ngFor="let file of rejectedFiles"
+    state="error"
+    [file]="file"
+    [showDelete]="control.enabled"
+  />
+
+  <tui-file
+    *ngIf="loadingFile && !isE2E"
+    state="loading"
+    [file]="loadingFile"
+    [showDelete]="control.enabled"
+    (remove)="removeLoading()"
+  />
+</tui-files>
