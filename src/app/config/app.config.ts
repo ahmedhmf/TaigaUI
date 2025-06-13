@@ -15,6 +15,7 @@ import { fadeComponents } from './fade-components.config';
 import { groupComponents } from './group-components.config';
 import { hintComponents } from './hint-components.config';
 import { iconComponents } from './icon-components.config';
+import { inputDateComponents } from './input-date-components.config';
 import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
 import { notificationComponents } from './notification-components.config';
@@ -29,13 +30,13 @@ import { segmentedComponents } from './segmented-components.config';
 import { sensitiveComponents } from './sensitive-components.config';
 import { skeletonComponents } from './skeleton-components.config';
 import { sliderComponents } from './slider-components.config';
+import { stepperComponents } from './stepper-components.config';
 import { swipeActionsComponents } from './swipe-actions-components.config';
 import { switchComponents } from './switch-components.config';
 import { tabbarComponents } from './tabbar-components.config';
 import { tabsComponents } from './tabs-component.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
-import { stepperComponents } from './stepper-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -83,7 +84,8 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   stepperComponents,
   searchComponents,
   radioComponents,
-  scrollbarComponents
+  scrollbarComponents,
+  inputDateComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
