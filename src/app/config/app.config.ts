@@ -36,6 +36,7 @@ import { tabsComponents } from './tabs-component.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
 import { stepperComponents } from './stepper-components.config';
+import { inputcardComponents } from './inputcard-components.config';
 import { textfieldComponents } from './textfield-components.config';
 
 export type ComponentStructure = {
@@ -85,6 +86,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   searchComponents,
   radioComponents,
   scrollbarComponents,
+  inputcardComponents,
   textfieldComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])

@@ -1,10 +1,10 @@
-import { Component, input } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-element-container',
   templateUrl: './element-container.component.html',
   styleUrl: './element-container.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ElementContainerComponent {
   title = input<string>('');
