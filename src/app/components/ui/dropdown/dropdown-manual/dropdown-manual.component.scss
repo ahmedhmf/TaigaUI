@@ -1,0 +1,11 @@
+@mixin center-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown {
+  @include center-all;
+
+  position: fixed;
+}
