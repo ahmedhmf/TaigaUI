@@ -1,4 +1,4 @@
-import { NgForOf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +17,6 @@ import { map } from 'rxjs';
 @Component({
   selector: 'app-search-small',
   imports: [
-    NgForOf,
     ReactiveFormsModule,
     TuiButton,
     TuiChevron,
@@ -27,8 +26,8 @@ import { map } from 'rxjs';
     TuiSearch,
     TuiSegmented,
     TuiSwitch,
-    TuiTextfield,
-  ],
+    TuiTextfield
+],
   templateUrl: './search-small.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

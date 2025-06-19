@@ -37,6 +37,8 @@ import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
 import { stepperComponents } from './stepper-components.config';
 import { dropdownComponents } from './dropdown-components.config';
+import { inputcardComponents } from './inputcard-components.config';
+import { textfieldComponents } from './textfield-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -86,6 +88,8 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   radioComponents,
   scrollbarComponents,
   dropdownComponents,
+  inputcardComponents,
+  textfieldComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

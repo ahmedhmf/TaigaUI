@@ -1,4 +1,4 @@
-import { JsonPipe, NgForOf, NgIf } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   FormArray,
@@ -15,13 +15,12 @@ import { TuiSearch } from '@taiga-ui/layout';
   selector: 'app-search-filters',
   imports: [
     JsonPipe,
-    NgForOf,
     ReactiveFormsModule,
     TuiButton,
     TuiItemsWithMore,
     TuiSearch,
-    TuiTextfield,
-  ],
+    TuiTextfield
+],
   templateUrl: './search-filters.component.html',
   styleUrl: './search-filters.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
