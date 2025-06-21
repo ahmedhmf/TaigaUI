@@ -1,18 +1,12 @@
-import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TuiAmountPipe } from '@taiga-ui/addon-commerce';
 import { TuiDropdownMobile } from '@taiga-ui/addon-mobile';
-import { TuiButton, TuiDropdown, TuiTextfield, TuiTitle } from '@taiga-ui/core';
+import { TuiDropdown, TuiTextfield } from '@taiga-ui/core';
 import {
-  TuiAvatar,
-  TuiChevron,
   TuiDataListWrapper,
-  TuiFade,
   TuiFilterByInputPipe,
   TuiInputNumber,
 } from '@taiga-ui/kit';
-import { TuiCell } from '@taiga-ui/layout';
 import {
   TuiComboBoxModule,
   TuiMultiSelectModule,
@@ -28,24 +22,16 @@ interface User {
 @Component({
   selector: 'app-dropdown-mobile',
   imports: [
-    AsyncPipe,
     FormsModule,
-    TuiAmountPipe,
-    TuiAvatar,
-    TuiButton,
-    TuiCell,
-    TuiChevron,
     TuiComboBoxModule,
     TuiDataListWrapper,
     TuiDropdown,
     TuiDropdownMobile,
-    TuiFade,
     TuiFilterByInputPipe,
     TuiInputNumber,
     TuiMultiSelectModule,
     TuiTextfield,
     TuiTextfieldControllerModule,
-    TuiTitle,
   ],
   templateUrl: './dropdown-mobile.component.html',
   styleUrl: './dropdown-mobile.component.scss',

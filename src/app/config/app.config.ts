@@ -10,11 +10,15 @@ import { carouselComponents } from './carousel-components.config';
 import { checkboxComponents } from './checkbox-components';
 import { chipComponents } from './chip-components.config';
 import { comboboxComponents } from './combobox-components.config';
+import { dialogComponents } from './dialog-components.config';
+import { dropdownComponents } from './dropdown-components.config';
 import { errorComponents } from './error-components.config';
 import { fadeComponents } from './fade-components.config';
 import { groupComponents } from './group-components.config';
 import { hintComponents } from './hint-components.config';
 import { iconComponents } from './icon-components.config';
+import { inputFilesComponents } from './input-files-components.config';
+import { inputcardComponents } from './inputcard-components.config';
 import { linkComponents } from './link-components.config';
 import { loaderComponents } from './loader-components.config';
 import { notificationComponents } from './notification-components.config';
@@ -29,17 +33,14 @@ import { segmentedComponents } from './segmented-components.config';
 import { sensitiveComponents } from './sensitive-components.config';
 import { skeletonComponents } from './skeleton-components.config';
 import { sliderComponents } from './slider-components.config';
+import { stepperComponents } from './stepper-components.config';
 import { swipeActionsComponents } from './swipe-actions-components.config';
 import { switchComponents } from './switch-components.config';
 import { tabbarComponents } from './tabbar-components.config';
 import { tabsComponents } from './tabs-component.config';
+import { textfieldComponents } from './textfield-components.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
-import { stepperComponents } from './stepper-components.config';
-import { inputFilesComponents } from './input-files-components.config';
-import { dropdownComponents } from './dropdown-components.config';
-import { inputcardComponents } from './inputcard-components.config';
-import { textfieldComponents } from './textfield-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -92,6 +93,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   dropdownComponents,
   inputcardComponents,
   textfieldComponents,
+  dialogComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
