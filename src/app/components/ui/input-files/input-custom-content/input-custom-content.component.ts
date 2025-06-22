@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TuiIcon, TuiLink } from '@taiga-ui/core';
@@ -7,7 +7,7 @@ import { TuiAvatar, TuiFiles } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-input-custom-content',
-  imports: [NgIf, ReactiveFormsModule, TuiAvatar, TuiFiles, TuiIcon, TuiLink],
+  imports: [ReactiveFormsModule, TuiAvatar, TuiFiles, TuiIcon, TuiLink],
   templateUrl: './input-custom-content.component.html',
   styleUrl: './input-custom-content.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

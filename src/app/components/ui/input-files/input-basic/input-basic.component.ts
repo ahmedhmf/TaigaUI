@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import type { TuiFileLike } from '@taiga-ui/kit';
@@ -8,7 +8,7 @@ import { finalize, map, of, Subject, switchMap, timer } from 'rxjs';
 
 @Component({
   selector: 'app-input-basic',
-  imports: [AsyncPipe, NgIf, ReactiveFormsModule, TuiFiles],
+  imports: [AsyncPipe, ReactiveFormsModule, TuiFiles],
   templateUrl: './input-basic.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

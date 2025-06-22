@@ -1,4 +1,4 @@
-import { NgForOf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TuiItem } from '@taiga-ui/cdk';
 import type { TuiFileLike } from '@taiga-ui/kit';
@@ -6,7 +6,7 @@ import { TuiFiles } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-input-with-butto',
-  imports: [NgForOf, TuiFiles, TuiItem],
+  imports: [TuiFiles, TuiItem],
   templateUrl: './input-with-butto.component.html',
   styleUrl: './input-with-butto.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

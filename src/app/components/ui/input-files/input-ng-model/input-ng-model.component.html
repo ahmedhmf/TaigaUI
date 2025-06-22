@@ -7,20 +7,22 @@
     [ngModel]="files"
     (ngModelChange)="onChange($event)"
     (reject)="onReject($event)"
-  />
-</label>
+    />
+  </label>
 
-<tui-files class="tui-space_top-1">
-  <tui-file
-    *ngFor="let file of rejected"
-    state="error"
-    [file]="(file | tuiFileRejected: validator | async) || file"
-    (remove)="onRemove(file)"
-  />
-  <tui-file
-    *ngFor="let file of files"
-    state="normal"
-    [file]="file"
-    (remove)="onRemove(file)"
-  />
-</tui-files>
+  <tui-files class="tui-space_top-1">
+    @for (file of rejected; track file) {
+      <tui-file
+        state="error"
+        [file]="(file | tuiFileRejected: validator | async) || file"
+        (remove)="onRemove(file)"
+        />
+    }
+    @for (file of files; track file) {
+      <tui-file
+        state="normal"
+        [file]="file"
+        (remove)="onRemove(file)"
+        />
+    }
+  </tui-files>
