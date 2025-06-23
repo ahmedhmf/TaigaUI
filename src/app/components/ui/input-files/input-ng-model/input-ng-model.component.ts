@@ -1,11 +1,11 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TuiFiles } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-input-ng-model',
-  imports: [AsyncPipe, FormsModule, NgForOf, TuiFiles],
+  imports: [AsyncPipe, FormsModule, TuiFiles],
 
   templateUrl: './input-ng-model.component.html',
   styleUrl: './input-ng-model.component.scss',

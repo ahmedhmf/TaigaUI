@@ -1,4 +1,4 @@
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import type { AbstractControl, ValidatorFn } from '@angular/forms';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -11,12 +11,11 @@ import { map } from 'rxjs';
   selector: 'app-input-multiple',
   imports: [
     AsyncPipe,
-    NgForOf,
     ReactiveFormsModule,
     TuiError,
     TuiFieldErrorPipe,
-    TuiFiles,
-  ],
+    TuiFiles
+],
   templateUrl: './input-multiple.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -1,0 +1,17 @@
+<tui-axes
+  class="axes"
+  [horizontalLines]="2"
+  [tuiLineChartHint]="hint"
+  [verticalLines]="4"
+>
+  @for(value of values; track $index ) {
+  <tui-line-chart
+    class="chart"
+    [height]="200"
+    [value]="value"
+    [width]="400"
+    [x]="0"
+    [y]="0"
+  />
+  }
+</tui-axes>

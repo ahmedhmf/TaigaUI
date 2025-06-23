@@ -41,6 +41,9 @@ import { tabsComponents } from './tabs-component.config';
 import { textfieldComponents } from './textfield-components.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
+import { lineChartComponents } from './line-chart-components.config';
+import { ringChartComponents } from './ring-chart-components';
+import { arcChartComponents } from './arc-chart-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -94,6 +97,9 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   inputcardComponents,
   textfieldComponents,
   dialogComponents,
+  lineChartComponents,
+  ringChartComponents,
+  arcChartComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

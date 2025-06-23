@@ -1,4 +1,4 @@
-import { NgForOf, NgIf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TUI_IS_E2E } from '@taiga-ui/cdk';
@@ -7,7 +7,7 @@ import { TuiFiles } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-input-standalone',
-  imports: [NgForOf, NgIf, TuiFiles],
+  imports: [TuiFiles],
   templateUrl: './input-standalone.component.html',
   styleUrls: ['./input-standalone.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
