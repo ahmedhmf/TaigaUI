@@ -5,6 +5,7 @@ import { SelectFormControlComponent } from '../components/ui/select/select-form-
 import { SelectItemdHandlerComponent } from '../components/ui/select/select-itemd-handler/select-itemd-handler.component';
 import { SelectNativePickerGroupingOptionsComponent } from '../components/ui/select/select-native-picker-grouping-options/select-native-picker-grouping-options.component';
 import { SelectNativePickerComponent } from '../components/ui/select/select-native-picker/select-native-picker.component';
+import { SelectOverrideOptionComponent } from '../components/ui/select/select-override-option/select-override-option.component';
 import { SelectTextfieldCustomComponent } from '../components/ui/select/select-textfield-custom/select-textfield-custom.component';
 import { SelectVirtualScrollComponent } from '../components/ui/select/select-virtual-scroll/select-virtual-scroll.component';
 import { ComponentStructure } from './app.config';
@@ -85,6 +86,6 @@ export const selectComponents: Omit<ComponentStructure, 'id'>[] = [
     title: 'Select Override Option Component',
     description: 'Select Override Option Component',
     url: 'https://taiga-ui.dev/components/select#override-option-component',
-    component: SelectNativePickerComponent,
+    component: SelectOverrideOptionComponent,
   },
 ];

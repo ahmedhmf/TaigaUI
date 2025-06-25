@@ -1,1 +1,5 @@
-<p>select-override-option works!</p>
+<tui-textfield tuiChevron>
+  <input placeholder="Select something" tuiSelect [formControl]="control" />
+
+  <tui-data-list-wrapper *tuiTextfieldDropdown new [items]="items" />
+</tui-textfield>

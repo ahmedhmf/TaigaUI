@@ -1,1 +1,16 @@
-<p>select-dropdown-mobile works!</p>
+<tui-textfield
+  tuiChevron
+  tuiDropdownMobile="Select platform"
+  [disabledItemHandler]="disabledItemHandler"
+>
+  <label tuiLabel>Platform</label>
+
+  <input tuiSelect [(ngModel)]="value" />
+
+  <tui-data-list-wrapper
+    *tuiTextfieldDropdown
+    new
+    [items]="platforms"
+    [tuiPlatform]="value ?? 'ios'"
+  />
+</tui-textfield>

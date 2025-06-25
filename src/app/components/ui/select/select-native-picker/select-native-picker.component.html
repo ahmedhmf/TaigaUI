@@ -1,1 +1,20 @@
-<p>select-native-picker works!</p>
+<tui-textfield
+  tuiChevron
+  [disabledItemHandler]="disabledItemHandler"
+  [stringify]="stringify"
+>
+  @if (isMobile) {
+    <select
+      aria-label="Choose your side"
+      placeholder="Choose your side"
+      tuiSelect
+      [formControl]="control"
+      [items]="items"
+    ></select>
+  } @else {
+    <ng-container input>
+      <input placeholder="Choose your side" tuiSelect [formControl]="control" />
+    </ng-container>
+    <tui-data-list-wrapper *tuiTextfieldDropdown new [items]="items" />
+  }
+</tui-textfield>

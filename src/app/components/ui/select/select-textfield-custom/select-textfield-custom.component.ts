@@ -1,12 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TuiIcon, TuiTextfield } from '@taiga-ui/core';
-import {
-  TuiChevron,
-  TuiDataListWrapper,
-  TuiSelect,
-  TuiTooltip,
-} from '@taiga-ui/kit';
+import { TuiChevron, TuiDataListWrapper, TuiTooltip } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-select-textfield-custom',

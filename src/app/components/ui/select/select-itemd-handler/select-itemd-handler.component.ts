@@ -1,11 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TuiSelect, TuiTextfield } from '@taiga-ui/core';
-import {
-  TuiChevron,
-  TuiDataListWrapper,
-  tuiItemsHandlersProvider,
-} from '@taiga-ui/kit';
+import { tuiItemsHandlersProvider, TuiTextfield } from '@taiga-ui/core';
+import { TuiChevron, TuiDataListWrapper, TuiSelect } from '@taiga-ui/kit';
 
 interface Character {
   readonly id: number;
@@ -25,10 +21,9 @@ interface Character {
   styleUrl: './select-itemd-handler.component.scss',
   providers: [
     tuiItemsHandlersProvider({
-      stringify: (item: Character) => item.name,
-      identityMatcher: (item1: Character, item2: Character) =>
-        item1.id === item2.id,
-      disabledItemHandler: (item: Character) => item.name.includes('Trevor'),
+      stringify: signal((x: Character) => x.name),
+      identityMatcher: signal((a: Character, b: Character) => a.id === b.id),
+      disabledItemHandler: signal((x: Character) => x.name.includes('Trevor')),
     }),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
