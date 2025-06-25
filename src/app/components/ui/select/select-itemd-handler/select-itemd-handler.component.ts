@@ -43,5 +43,5 @@ export class SelectItemdHandlerComponent {
     { id: 777, name: 'Franklin Clinton' },
   ];
 
-  protected value: Character | null = { id: 42, name: 'Tommy Vercetti' }; // !== this.users[0]
+  protected value: Character | null = { id: 42, name: 'Tommy Vercetti' };
 }

@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import type { TuiPaymentSystem } from '@taiga-ui/addon-commerce';
 import { TuiThumbnailCard } from '@taiga-ui/addon-commerce';
-import { TuiSelect, TuiTextfield } from '@taiga-ui/core';
-import { TuiChevron, TuiDataListWrapper } from '@taiga-ui/kit';
+import { TuiTextfield } from '@taiga-ui/core';
+import { TuiChevron, TuiDataListWrapper, TuiSelect } from '@taiga-ui/kit';
 
 interface Card {
   name: string;
