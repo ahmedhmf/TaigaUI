@@ -18,6 +18,7 @@ import { fadeComponents } from './fade-components.config';
 import { groupComponents } from './group-components.config';
 import { hintComponents } from './hint-components.config';
 import { iconComponents } from './icon-components.config';
+import { inputDateComponents } from './input-date-components.config';
 import { inputFilesComponents } from './input-files-components.config';
 import { inputcardComponents } from './inputcard-components.config';
 import { lineChartComponents } from './line-chart-components.config';
@@ -93,6 +94,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   searchComponents,
   radioComponents,
   scrollbarComponents,
+  inputDateComponents,
   inputFilesComponents,
   dropdownComponents,
   inputcardComponents,
