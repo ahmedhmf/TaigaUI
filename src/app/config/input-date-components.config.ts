@@ -1,5 +1,6 @@
 import { BasicComponent } from '../components/ui/input-date/basic/basic.component';
 import { CustomDropdownComponent } from '../components/ui/input-date/custom-dropdown/custom-dropdown.component';
+import { DataListComponent } from '../components/ui/input-date/data-list/data-list.component';
 import { FormatComponent } from '../components/ui/input-date/format/format.component';
 import { LimitsComponent } from '../components/ui/input-date/limits/limits.component';
 import { MobileComponent } from '../components/ui/input-date/mobile/mobile.component';
@@ -62,6 +63,6 @@ export const inputDateComponents: Omit<ComponentStructure, 'id'>[] = [
     title: 'Input Date Datalist',
     description: 'Input Date Datalist',
     url: 'https://taiga-ui.dev/components/input-date#datalist',
-    component: ValidationComponent,
+    component: DataListComponent,
   },
 ];

@@ -1,1 +1,6 @@
-<p>value-transformer works!</p>
+<tui-textfield>
+  <label tuiLabel>Choose a date</label>
+  <input tuiInputDate [(ngModel)]="value" />
+  <tui-calendar *tuiTextfieldDropdown />
+</tui-textfield>
+<p>{{ value | json }}</p>

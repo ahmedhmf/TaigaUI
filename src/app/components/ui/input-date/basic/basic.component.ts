@@ -2,12 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TuiDay } from '@taiga-ui/cdk';
 import { TuiTextfield } from '@taiga-ui/core';
-import { TuiCalendarMonth } from '@taiga-ui/kit';
-import { TuiInputDateModule } from '@taiga-ui/legacy';
+import { TuiInputDate } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-basic',
-  imports: [FormsModule, TuiInputDateModule, TuiCalendarMonth, TuiTextfield],
+  imports: [FormsModule, TuiInputDate, TuiTextfield],
   templateUrl: './basic.component.html',
   styleUrl: './basic.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
