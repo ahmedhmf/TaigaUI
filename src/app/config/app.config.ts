@@ -1,4 +1,5 @@
 import { Type } from '@angular/core';
+import { accordionComponents } from './accordion-components.config';
 import { actionbarComponents } from './actionbar-components.config';
 import { alertComponents } from './alert-components.config';
 import { arcChartComponents } from './arc-chart-components.config';
@@ -104,6 +105,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   ringChartComponents,
   arcChartComponents,
   selectComponents,
+  accordionComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
