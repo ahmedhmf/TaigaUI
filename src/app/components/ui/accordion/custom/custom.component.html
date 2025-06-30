@@ -1,0 +1,50 @@
+<tui-accordion class="accordion">
+  @for (group of operations | keyvalue: orderBy; track group.key) {
+    <button appearance="" iconEnd="" tuiAccordion tuiCell>
+      <span tuiTitle>
+        <strong>{{ group.key }}</strong>
+        <span tuiSubtitle>
+          @if (group.value.length) {
+            {{ group.value.length }} operations • Total:
+            {{ sum(group.value) | tuiAmount: '$' : 'left' | async }}
+          } @else {
+            No operations so far
+          }
+        </span>
+      </span>
+    </button>
+    <tui-expand [style.display]="group.value.length ? null : 'none'">
+      @for (operation of group.value; track operation.title) {
+        <div tuiCell>
+          <tui-avatar
+            [appearance]="operation.sum && operation.sum > 0 ? '' : 'negative'"
+            [src]="getIcon(operation)"
+          />
+          <span tuiTitle>
+            <strong>{{ operation.title }}</strong>
+            @if (operation.subtitle) {
+              <span tuiSubtitle>
+                {{ operation.subtitle }}
+              </span>
+            }
+          </span>
+          @if (operation.sum) {
+            <span
+              tuiTitle
+              [style.color]="
+                operation.sum > 0 ? 'var(--tui-text-positive)' : null
+              "
+            >
+              {{ operation.sum | tuiAmount: '$' : 'left' | async }}
+              <span tuiSubtitle>{{ operation.time }}</span>
+            </span>
+          } @else {
+            <button appearance="secondary" tuiButton type="button">
+              Retry
+            </button>
+          }
+        </div>
+      }
+    </tui-expand>
+  }
+</tui-accordion>
