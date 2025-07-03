@@ -1,8 +1,0 @@
-tui-accordion {
-  --tui-accordion-header-height: 44px;
-}
-
-button[tuiAccordion] {
-  min-height: var(--tui-accordion-header-height);
-  height: var(--tui-accordion-header-height);
-}
