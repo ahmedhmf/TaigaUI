@@ -6,10 +6,12 @@
   flex-direction: column;
 
   .content {
-    height: 10rem;
+    height: 11rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    overflow: auto;
   }
 
   footer {

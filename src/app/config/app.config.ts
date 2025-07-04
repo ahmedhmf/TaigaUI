@@ -8,6 +8,7 @@ import { badgeComponents } from './badge-components.config';
 import { blockComponents } from './block-components.config';
 import { breadcrumbComponents } from './breadcrumbs-components.config';
 import { buttonComponents } from './button-components.config';
+import { calendarComponents } from './calendar-components.config';
 import { carouselComponents } from './carousel-components.config';
 import { checkboxComponents } from './checkbox-components';
 import { chipComponents } from './chip-components.config';
@@ -106,6 +107,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   arcChartComponents,
   selectComponents,
   accordionComponents,
+  calendarComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
