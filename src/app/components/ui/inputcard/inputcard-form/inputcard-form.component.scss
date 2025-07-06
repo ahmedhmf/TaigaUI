@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+section {
+  display: flex;
+  gap: inherit;
+
+  tui-textfield {
+    flex: 1;
+  }
+}

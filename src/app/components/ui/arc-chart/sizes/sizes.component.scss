@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 0.2rem;
+  min-width: 20rem;
+
+  --tui-chart-categorical-00: var(--tui-chart-categorical-12);
+  --tui-chart-categorical-01: var(--tui-chart-categorical-01);
+  --tui-chart-categorical-02: var(--tui-chart-categorical-03);
+  --tui-chart-categorical-03: var(--tui-chart-categorical-09);
+}
+
+.index-controller {
+  max-inline-size: 18rem;
+}

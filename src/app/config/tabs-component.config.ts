@@ -3,6 +3,7 @@ import { TabsBasicComponent } from '../components/ui/tabs/tabs-basic/tabs-basic.
 import { TabsClosingComponent } from '../components/ui/tabs/tabs-closing/tabs-closing.component';
 import { TabsComplexComponent } from '../components/ui/tabs/tabs-complex/tabs-complex.component';
 import { TabsStepperComponent } from '../components/ui/tabs/tabs-stepper/tabs-stepper.component';
+import { TabsStylesComponent } from '../components/ui/tabs/tabs-styles/tabs-styles.component';
 import { TabsVerticalComponent } from '../components/ui/tabs/tabs-vertical/tabs-vertical.component';
 import { TabsWithMoreComponent } from '../components/ui/tabs/tabs-with-more/tabs-with-more.component';
 import { ComponentStructure } from './app.config';
@@ -56,5 +57,12 @@ export const tabsComponents: Omit<ComponentStructure, 'id'>[] = [
     description: 'Tabs',
     url: 'https://taiga-ui.dev/navigation/tabs#active-index',
     component: TabsActiveIndexComponent,
+  },
+  {
+    label: 'Tabs Styles',
+    title: 'Tabs Styles',
+    description: 'Tabs',
+    url: 'https://taiga-ui.dev/navigation/tabs#styles',
+    component: TabsStylesComponent,
   },
 ];

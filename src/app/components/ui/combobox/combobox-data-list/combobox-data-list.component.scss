@@ -1,0 +1,14 @@
+:host {
+  width: 12rem; //fix
+}
+
+.avatar {
+  margin: 0 0.5rem 0 0;
+  flex-shrink: 0;
+}
+
+.name {
+  // @include text-overflow;
+
+  flex-shrink: 1;
+}

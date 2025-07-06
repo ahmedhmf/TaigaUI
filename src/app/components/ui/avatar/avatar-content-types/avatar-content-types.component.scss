@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  @media (max-width: 900px) {
+    flex-direction: row;
+  }
+}

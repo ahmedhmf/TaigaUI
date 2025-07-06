@@ -1,0 +1,22 @@
+<h3 tuiTitle>
+  <strong>Truncate</strong>
+  <span tuiSubtitle>
+    Using
+    <code>.text-truncate()</code>
+    mixin
+  </span>
+</h3>
+<tui-breadcrumbs>
+  @for (item of items; track $index) {
+    <button
+      *tuiItem
+      tuiHintOverflow
+      tuiLink
+      type="button"
+      class="link"
+      [class.link_last]="$last"
+    >
+      {{ item }}
+    </button>
+  }
+</tui-breadcrumbs>

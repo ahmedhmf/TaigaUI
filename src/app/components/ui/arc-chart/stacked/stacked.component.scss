@@ -1,0 +1,15 @@
+@import '@taiga-ui/core/styles/taiga-ui-local';
+
+.wrapper {
+  position: relative;
+  --tui-chart-0: var(--tui-chart-categorical-03);
+  margin-top: 12px;
+  min-width: 20rem;
+}
+
+.stacked {
+  @include fullsize();
+
+  --tui-background-neutral-1: transparent;
+  --tui-chart-0: var(--tui-chart-categorical-04);
+}

@@ -1,0 +1,7 @@
+<label tuiLabel>
+  <input tuiSwitch type="checkbox" [showIcons]="false" [(ngModel)]="open" />
+  Show dropdown
+</label>
+<div *tuiDropdown="open" tuiAppearance="floating" tuiCardLarge class="dropdown">
+  Manually style this element
+</div>

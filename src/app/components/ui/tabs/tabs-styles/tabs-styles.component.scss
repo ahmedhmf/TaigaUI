@@ -1,0 +1,8 @@
+:host {
+  width: 100%;
+
+  .custom {
+    font: var(--tui-font-heading-5);
+    box-shadow: none;
+  }
+}

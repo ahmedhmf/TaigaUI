@@ -3,16 +3,23 @@
   width: 100%;
   border: #e0e0e0 1px solid;
   border-radius: 8px;
+  flex-direction: column;
+
   .content {
-    height: 10rem;
+    height: 11rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    overflow: auto;
   }
+
   footer {
+    // width: 100%;
     background-color: white;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+
     a {
       color: #3170f9;
       text-decoration: none;

@@ -1,0 +1,16 @@
+:host {
+  width: 15rem;
+}
+
+section {
+  display: flex;
+}
+
+tui-data-list {
+  inline-size: 10rem;
+  box-shadow: -1px 0 var(--tui-border-normal);
+}
+
+.current ~ button::after {
+  display: none;
+}
