@@ -1,0 +1,29 @@
+:host {
+  margin-top: 4.5rem;
+  margin-left: 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.table {
+  inline-size: 100%;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+}
+
+.columns {
+  inline-size: 10.625rem;
+}
+
+.match {
+  background: var(--tui-service-selection-background);
+}

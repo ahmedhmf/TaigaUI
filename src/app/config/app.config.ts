@@ -44,6 +44,7 @@ import { stepperComponents } from './stepper-components.config';
 import { swipeActionsComponents } from './swipe-actions-components.config';
 import { switchComponents } from './switch-components.config';
 import { tabbarComponents } from './tabbar-components.config';
+import { tableComponents } from './table-components.config';
 import { tabsComponents } from './tabs-component.config';
 import { textfieldComponents } from './textfield-components.config';
 import { tilesComponents } from './tiles-components.config';
@@ -108,6 +109,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   selectComponents,
   accordionComponents,
   calendarComponents,
+  tableComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));
