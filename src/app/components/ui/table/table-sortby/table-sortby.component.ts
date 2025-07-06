@@ -4,7 +4,6 @@ import { AsyncPipe } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import type {
   TuiComparator,
-  TuiSortAndOrder,
   TuiTablePaginationEvent,
 } from '@taiga-ui/addon-table';
 import {
@@ -130,8 +129,8 @@ function getAge({ dob }: User): number {
     TuiReorder,
     TuiTable,
     TuiTablePagination,
-    TuiTextfield
-],
+    TuiTextfield,
+  ],
   templateUrl: './table-sortby.component.html',
   styleUrl: './table-sortby.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

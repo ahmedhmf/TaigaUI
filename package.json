@@ -18,6 +18,7 @@
     "@taiga-ui/addon-charts": "^4.41.0",
     "@taiga-ui/addon-commerce": "^4.41.0",
     "@taiga-ui/addon-doc": "^4.41.0",
+    "@taiga-ui/addon-table": "^4.41.0",
     "@taiga-ui/cdk": "^4.41.0",
     "@taiga-ui/core": "^4.41.0",
     "@taiga-ui/experimental": "^4.41.0",

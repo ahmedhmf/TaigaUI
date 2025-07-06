@@ -74,7 +74,10 @@ function getAge({ dob }: User): number {
 export class TableVirtualScrollComponent {
   protected readonly data = DATA;
 
-  protected readonly columns = ['name', 'dob', 'age'];
+  protected readonly columns = [
+    'name',
+    // 'dob', 'age'
+  ];
 
   protected readonly getAge = getAge;
 

@@ -1,4 +1,3 @@
-
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TuiTable } from '@taiga-ui/addon-table';
@@ -15,8 +14,8 @@ import {
     TuiInputModule,
     TuiInputTagModule,
     TuiTable,
-    TuiTextfieldControllerModule
-],
+    TuiTextfieldControllerModule,
+  ],
   templateUrl: './table-resize.component.html',
   styleUrl: './table-resize.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
