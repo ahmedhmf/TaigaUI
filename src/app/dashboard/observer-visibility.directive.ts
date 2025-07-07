@@ -19,7 +19,7 @@ export class ObserveVisibilityDirective {
   readonly currentIndex = input<number>(0, { alias: 'observeVisibility' });
   readonly debounceTimeMs = input<number>(0);
   readonly threshold = input<number>(1);
-  readonly visible = output<HTMLElement>();
+  readonly visible = output<void>();
 
   private observer: IntersectionObserver | undefined;
   private visibleElements$ = new Subject<HTMLElement>();
@@ -75,25 +75,11 @@ export class ObserveVisibilityDirective {
         debounceTime(this.debounceTimeMs()),
         filter(() => this.isBoundaryItem()),
         tap((element: HTMLElement) => {
-          if (this.isElementStillFullyVisible(element)) {
-            this.visible.emit(element);
-            this.observer?.unobserve(element);
-          }
+          this.visible.emit();
+          this.observer?.unobserve(element);
         }),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe();
-  }
-
-  private isElementStillFullyVisible(element: HTMLElement): boolean {
-    const rect = element.getBoundingClientRect();
-    const fullyVisible =
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-
-    return fullyVisible;
   }
 }
