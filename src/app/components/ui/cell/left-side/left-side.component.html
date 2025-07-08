@@ -1,0 +1,48 @@
+<div tuiCell>
+  <label tuiProgressLabel>
+    <tui-icon
+      icon="@tui.smile"
+      [style.color]="'var(--tui-background-accent-1)'"
+    />
+    <tui-progress-circle size="s" [value]="0.3" />
+  </label>
+  <div tuiTitle>
+    <strong>$30 our of $100</strong>
+    <div tuiSubtitle>Saving for a Benjamin Franklin portrait</div>
+  </div>
+  <div tuiTitle>
+    <tui-badge appearance="positive" size="s"> +$30 </tui-badge>
+    <div tuiSubtitle>&nbsp;</div>
+  </div>
+</div>
+
+<div tuiCell>
+  <tui-avatar-stack>
+    <tui-avatar src="/assets/images/avatar.jpg" />
+    <tui-avatar src="/assets/images/poorly.png" />
+    <tui-avatar>+2</tui-avatar>
+  </tui-avatar-stack>
+  <div tuiTitle>
+    Waterplea
+    <div tuiSubtitle>
+      <tui-badge appearance="neutral" size="s">
+        <tui-icon icon="@tui.lock" />
+        100 ₽
+      </tui-badge>
+      Music
+      <tui-icon appearance="positive" icon="@tui.bell" size="s" tuiBadge />
+    </div>
+  </div>
+  <a href="https://waterplea.bandcamp.com" tuiLink> Buy </a>
+</div>
+
+<div tuiCell>
+  <input tuiCheckbox type="checkbox" [(ngModel)]="value" />
+  <tui-thumbnail-card paymentSystem="mastercard" size="s">
+    1234
+  </tui-thumbnail-card>
+  <div tuiTitle>
+    Primary Card
+    <div tuiSubtitle>**** **** **** 1234</div>
+  </div>
+</div>

@@ -12,10 +12,11 @@
     justify-content: center;
     flex-direction: column;
     overflow: auto;
+    width: 100%;
   }
 
   footer {
-    // width: 100%;
+    width: 100%;
     background-color: white;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
