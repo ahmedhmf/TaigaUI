@@ -1,4 +1,4 @@
-import { KeyValuePipe, NgForOf } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TuiDay } from '@taiga-ui/cdk';
@@ -10,11 +10,10 @@ import { TuiInputDate } from '@taiga-ui/kit';
   imports: [
     FormsModule,
     KeyValuePipe,
-    NgForOf,
     TuiDataList,
     TuiInputDate,
-    TuiTextfield,
-  ],
+    TuiTextfield
+],
   templateUrl: './data-list.component.html',
   styleUrl: './data-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

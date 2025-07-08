@@ -1,0 +1,13 @@
+@for (size of sizes; track $index) {
+  <div [tuiCell]="size">
+    <tui-avatar appearance="primary" src="@tui.star" />
+    <div tuiTitle>
+      Title
+      <div tuiSubtitle>Description</div>
+    </div>
+    <div tuiTitle>
+      Secondary title
+      <div tuiSubtitle>Another description</div>
+    </div>
+  </div>
+}

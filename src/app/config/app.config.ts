@@ -49,6 +49,7 @@ import { tabsComponents } from './tabs-component.config';
 import { textfieldComponents } from './textfield-components.config';
 import { tilesComponents } from './tiles-components.config';
 import { treeComponents } from './tree-component.config';
+import { cellComponents } from './cell-components.config';
 
 export type ComponentStructure = {
   id: number;
@@ -110,6 +111,7 @@ const components: Omit<ComponentStructure, 'id'>[] = [
   accordionComponents,
   calendarComponents,
   tableComponents,
+  cellComponents,
 ]
   .reduce((acc, curr) => [...acc, ...curr], [])
   .sort((a, b) => a.title.localeCompare(b.title));

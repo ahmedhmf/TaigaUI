@@ -1,0 +1,40 @@
+<tui-notification>
+  Don't forget import
+  <code>TuiCardLarge</code>
+</tui-notification>
+
+<div tuiAppearance="floating" tuiCardLarge>
+  <h3 tuiTitle="m">Inside a block</h3>
+  @for (item of items; track $index) {
+    <button tuiCell type="button">
+      <tui-avatar appearance="accent" [src]="item.icon" />
+      <span tuiTitle>
+        {{ item.title }}
+        <span tuiSubtitle>{{ item.subtitle }}</span>
+      </span>
+    </button>
+  }
+</div>
+
+<label>
+  Inside a dropdown
+  <tui-textfield tuiChevron [content]="content" [tuiTextfieldCleaner]="false">
+    <input tuiSelect [(ngModel)]="value" />
+
+    <tui-data-list-wrapper
+      *tuiTextfieldDropdown
+      new
+      [itemContent]="content"
+      [items]="items"
+    />
+    <ng-template #content let-item>
+      <span tuiCell>
+        <tui-avatar appearance="primary" [src]="item.icon" />
+        <span tuiTitle>
+          {{ item.title }}
+          <span tuiSubtitle>{{ item.subtitle }}</span>
+        </span>
+      </span>
+    </ng-template>
+  </tui-textfield>
+</label>
