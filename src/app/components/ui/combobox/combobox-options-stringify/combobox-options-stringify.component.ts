@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TuiStringHandler } from '@taiga-ui/cdk';
-import { TuiDataListWrapper } from '@taiga-ui/kit';
+import { TuiDataListWrapper, tuiItemsHandlersProvider } from '@taiga-ui/kit';
 import {
   TuiComboBoxModule,
   TuiTextfieldControllerModule,
@@ -16,6 +16,9 @@ interface Employee {
   readonly name: string;
 }
 
+const STRINGIFY_EMPLOYEE: TuiStringHandler<Employee> = (item: Employee) =>
+  `${item.name} (${item.dept.title})`;
+
 @Component({
   selector: 'app-combobox-options-stringify',
   imports: [
@@ -27,6 +30,7 @@ interface Employee {
   templateUrl: './combobox-options-stringify.component.html',
   styleUrl: './combobox-options-stringify.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [tuiItemsHandlersProvider({ stringify: STRINGIFY_EMPLOYEE })],
 })
 export class ComboboxOptionsStringifyComponent {
   protected readonly testValue = new FormControl<Employee | null>(null);
